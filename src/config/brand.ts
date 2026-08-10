@@ -1,0 +1,33 @@
+export const BRAND_CONFIG = {
+  name: "MINDSEC",
+  subtitle: "CYBERSECURITY & SECURITY ENGINEERING",
+  tagline: "Find the weakness. Fix the risk.",
+  heroSub: "We test the systems businesses depend on.",
+  shortDescription: "MindSec provides rigorous web application security testing, API security, vulnerability assessments, and security engineering consulting.",
+  founder: {
+    name: "Mohamed Basil",
+    role: "Founder & Principal Cybersecurity Consultant",
+    bio: "Independent cybersecurity practice focused on helping organizations discover, understand, and reduce security risk.",
+    github: "https://github.com/basil-mindsec",
+    linkedin: "https://linkedin.com/in/mohamed-basil-cybersec",
+  },
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://mindsec.io",
+  contactEmail: "assessment@mindsec.io",
+  statusStrip: [
+    { label: "ASSESSMENT ENGINE", status: "ONLINE", ready: true },
+    { label: "APPLICATIONS", status: "READY", ready: true },
+    { label: "API", status: "READY", ready: true },
+    { label: "INFRASTRUCTURE", status: "READY", ready: true },
+    { label: "MODE", status: "AUTHORIZED TESTING ONLY", ready: false },
+  ],
+  navItems: [
+    { id: "surface", label: "01 / SURFACE", href: "#surface" },
+    { id: "test", label: "02 / TEST", href: "#test" },
+    { id: "verify", label: "03 / VERIFY", href: "#verify" },
+    { id: "report", label: "04 / REPORT", href: "#report" },
+    { id: "fix", label: "05 / FIX", href: "#fix" },
+    { id: "research", label: "RESEARCH", href: "#research" },
+    { id: "about", label: "ABOUT", href: "#about" },
+    { id: "contact", label: "CONTACT", href: "#contact" },
+  ],
+};
