@@ -83,7 +83,7 @@ export const AboutSection: React.FC = () => {
 
               <div className="pt-4 space-y-3 font-mono text-xs">
                 <a
-                  href={https://github.com/Basilmellow}
+                  href={BRAND_CONFIG.founder.github}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center space-x-3 p-3 rounded bg-bg-surface border border-bg-border text-secondary hover:text-primary hover:border-cyan-accent/40 transition-all"
@@ -92,7 +92,7 @@ export const AboutSection: React.FC = () => {
                   <span>GitHub Profile</span>
                 </a>
                 <a
-                  href={https://www.linkedin.com/in/mohamed-basil-966a8225a/}
+                  href={BRAND_CONFIG.founder.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center space-x-3 p-3 rounded bg-bg-surface border border-bg-border text-secondary hover:text-primary hover:border-cyan-accent/40 transition-all"
