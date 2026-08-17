@@ -58,6 +58,17 @@ body {
   background: #F97316;
 }
 
+/* Hide scrollbars utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+
 /* Eyebrow Header with Burnt Orange Accent Line */
 .eyebrow {
   font-family: 'JetBrains Mono', monospace;
