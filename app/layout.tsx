@@ -4,7 +4,7 @@ import { BRAND_CONFIG } from '@/config/brand';
 
 export const metadata: Metadata = {
   metadataBase: new URL(BRAND_CONFIG.siteUrl),
-  title: `${BRAND_CONFIG.name} | Cybersecurity Services, Penetration Testing & Security Assessments`,
+  title: BRAND_CONFIG.name,
   description: BRAND_CONFIG.shortDescription,
   keywords: [
     'KRAXXSEC',
@@ -21,20 +21,20 @@ export const metadata: Metadata = {
   authors: [{ name: BRAND_CONFIG.founder.name, url: BRAND_CONFIG.founder.github }],
   creator: BRAND_CONFIG.founder.name,
   icons: {
-    icon: '/icon.svg',
-    shortcut: '/favicon.ico',
-    apple: '/icon.svg',
+    icon: '/kraxxsec-icon.jpg',
+    shortcut: '/kraxxsec-icon.jpg',
+    apple: '/kraxxsec-icon.jpg',
   },
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: BRAND_CONFIG.siteUrl,
-    title: `${BRAND_CONFIG.name} | Cybersecurity Services, Penetration Testing & Security Assessments`,
+    title: BRAND_CONFIG.name,
     description: BRAND_CONFIG.shortDescription,
     siteName: BRAND_CONFIG.name,
     images: [
       {
-        url: '/og-image.png',
+        url: '/kraxxsec-logo.png',
         width: 1200,
         height: 630,
         alt: `${BRAND_CONFIG.name} — Cybersecurity & Security Engineering`,
@@ -43,9 +43,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: `${BRAND_CONFIG.name} | Cybersecurity Services & Penetration Testing`,
+    title: BRAND_CONFIG.name,
     description: BRAND_CONFIG.shortDescription,
-    images: ['/og-image.png'],
+    images: ['/kraxxsec-logo.png'],
   },
   robots: {
     index: true,
@@ -74,11 +74,12 @@ export default function RootLayout({
       name: BRAND_CONFIG.parentBrand,
     },
     url: BRAND_CONFIG.siteUrl,
-    logo: `${BRAND_CONFIG.siteUrl}/icon.svg`,
+    logo: `${BRAND_CONFIG.siteUrl}/kraxxsec-icon.jpg`,
     email: BRAND_CONFIG.contactEmail,
     sameAs: [
       BRAND_CONFIG.founder.github,
       BRAND_CONFIG.founder.linkedin,
+      BRAND_CONFIG.companyLinkedin,
     ],
   };
 
@@ -88,8 +89,8 @@ export default function RootLayout({
     name: BRAND_CONFIG.name,
     description: BRAND_CONFIG.shortDescription,
     url: BRAND_CONFIG.siteUrl,
-    logo: `${BRAND_CONFIG.siteUrl}/icon.svg`,
-    image: `${BRAND_CONFIG.siteUrl}/og-image.png`,
+    logo: `${BRAND_CONFIG.siteUrl}/kraxxsec-icon.jpg`,
+    image: `${BRAND_CONFIG.siteUrl}/kraxxsec-logo.png`,
     founder: {
       '@type': 'Person',
       name: BRAND_CONFIG.founder.name,
