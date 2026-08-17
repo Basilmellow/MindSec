@@ -35,7 +35,7 @@ const BLADES: SecurityBlade[] = [
       'Third-Party Dependency & CVE Audit',
     ],
     recommendedFor: 'SaaS platforms, Web apps prior to launch, client portals',
-    icon: <Terminal className="h-4 w-4 text-cyan-accent" />,
+    icon: <Terminal className="h-4 w-4 text-orange-accent" />,
   },
   {
     id: 'api-sec',
@@ -54,7 +54,7 @@ const BLADES: SecurityBlade[] = [
       'GraphQL Schema & Query Depth Abuse',
     ],
     recommendedFor: 'Mobile backends, Microservices, Public REST & GraphQL APIs',
-    icon: <Cpu className="h-4 w-4 text-cyan-accent" />,
+    icon: <Cpu className="h-4 w-4 text-orange-accent" />,
   },
   {
     id: 'vuln-review',
@@ -73,7 +73,7 @@ const BLADES: SecurityBlade[] = [
       'Network Gateway & Port Exposure Review',
     ],
     recommendedFor: 'Public IP ranges, Domain perimeters, Staging & Dev servers',
-    icon: <ShieldCheck className="h-4 w-4 text-cyan-accent" />,
+    icon: <ShieldCheck className="h-4 w-4 text-orange-accent" />,
   },
   {
     id: 'hardening',
@@ -92,7 +92,7 @@ const BLADES: SecurityBlade[] = [
       '1x Retest Verification Included',
     ],
     recommendedFor: 'Engineering teams implementing security remediation',
-    icon: <FileCode2 className="h-4 w-4 text-cyan-accent" />,
+    icon: <FileCode2 className="h-4 w-4 text-orange-accent" />,
   },
   {
     id: 'advisory',
@@ -111,7 +111,7 @@ const BLADES: SecurityBlade[] = [
       'Quarterly Retesting & Security Reviews',
     ],
     recommendedFor: 'Founders, CTOs, and growing engineering teams',
-    icon: <Lock className="h-4 w-4 text-cyan-accent" />,
+    icon: <Lock className="h-4 w-4 text-orange-accent" />,
   },
 ];
 
@@ -122,7 +122,7 @@ export const BladeRack: React.FC = () => {
   return (
     <div className="space-y-8">
       {/* 3D Vertical Blade Chassis Rack */}
-      <div className="bg-bg-surface border border-border-color rounded-xl p-6 space-y-4 shadow-[0_15px_40px_rgba(0,0,0,0.4)]">
+      <div className="bg-bg-surface border border-border-color rounded-xl p-6 space-y-4 shadow-[0_15px_40px_rgba(0,0,0,0.5)]">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between border-b border-border-color pb-4 gap-2">
           <div>
             <div className="eyebrow mb-1">CHASSIS RACK MODULES</div>
@@ -130,12 +130,12 @@ export const BladeRack: React.FC = () => {
               ENGINEERING CAPABILITIES DECK
             </h3>
           </div>
-          <span className="font-mono text-[10px] text-text-secondary bg-bg-card border border-border-color px-3 py-1.5 rounded uppercase tracking-wider">
+          <span className="nw-badge">
             SLOT TO INSPECT SPEC
           </span>
         </div>
 
-        {/* Slotted 3D Blade Strip */}
+        {/* Slotted 3D Blade Strip - Right side up text! */}
         <div className="blades-container">
           {BLADES.map((blade, idx) => {
             const isSelected = blade.id === selectedBladeId;
@@ -144,18 +144,23 @@ export const BladeRack: React.FC = () => {
                 key={blade.id}
                 onClick={() => setSelectedBladeId(blade.id)}
                 aria-selected={isSelected}
-                className="blade-card focus:outline-none"
+                className="blade-card focus:outline-none group"
               >
-                <span className="font-mono text-[10px] text-text-muted font-bold">
+                {/* Module Number */}
+                <span className={`font-mono text-xs font-bold transition-colors ${isSelected ? 'text-orange-accent' : 'text-text-muted'}`}>
                   0{idx + 1}
                 </span>
 
-                <span className="writing-mode-vertical rotate-180 font-heading font-bold text-xs tracking-wider text-text-secondary transition-colors duration-300">
-                  {blade.shortName}
-                </span>
+                {/* Module Title - Upright Vertical Reading */}
+                <div className="my-auto py-2 flex flex-col items-center">
+                  <span className={`font-heading font-bold text-xs tracking-wider text-center transition-colors ${isSelected ? 'text-orange-accent' : 'text-text-secondary group-hover:text-text-primary'}`}>
+                    {blade.shortName}
+                  </span>
+                </div>
 
-                <div className="flex flex-col items-center gap-1.5">
-                  <span className="font-mono text-[9px] text-text-muted tracking-tighter">
+                {/* Turnaround & LED Status */}
+                <div className="flex flex-col items-center gap-1.5 w-full pt-2 border-t border-border-color/50">
+                  <span className="font-mono text-[9px] text-text-muted font-medium tracking-tight">
                     {blade.turnaround}
                   </span>
                   <div className="blade-led" />
@@ -174,14 +179,14 @@ export const BladeRack: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
           transition={{ duration: 0.35, ease: 'easeOut' }}
-          className="border border-border-color rounded-xl bg-bg-surface overflow-hidden grid grid-cols-1 lg:grid-cols-12 shadow-[0_20px_50px_rgba(0,0,0,0.3)]"
+          className="border border-border-color rounded-xl bg-bg-surface overflow-hidden grid grid-cols-1 lg:grid-cols-12 shadow-[0_20px_50px_rgba(0,0,0,0.4)]"
         >
           {/* Main Info Column */}
           <div className="lg:col-span-7 p-6 sm:p-8 border-b lg:border-b-0 lg:border-r border-border-color space-y-6">
             <div className="space-y-2">
               <div className="flex items-center gap-3">
                 {activeBlade.icon}
-                <span className="font-mono text-xs font-bold text-cyan-accent tracking-widest uppercase">
+                <span className="font-mono text-xs font-bold text-orange-accent tracking-widest uppercase">
                   {activeBlade.tag}
                 </span>
               </div>
@@ -201,9 +206,9 @@ export const BladeRack: React.FC = () => {
                 {activeBlade.features.map((feat, i) => (
                   <div
                     key={i}
-                    className="p-3 rounded bg-bg-card border border-border-color text-text-primary flex items-start gap-2 hover:border-cyan-accent/40 transition-colors"
+                    className="p-3 rounded bg-bg-card border border-border-color text-text-primary flex items-start gap-2 hover:border-orange-accent/40 transition-colors"
                   >
-                    <span className="text-cyan-accent font-bold">›</span>
+                    <span className="text-orange-accent font-bold">›</span>
                     <span>{feat}</span>
                   </div>
                 ))}
@@ -218,7 +223,7 @@ export const BladeRack: React.FC = () => {
                 <span className="font-mono text-[10px] text-text-muted uppercase tracking-widest">
                   TYPICAL TURNAROUND
                 </span>
-                <p className="font-mono text-xl font-bold text-cyan-accent">
+                <p className="font-mono text-xl font-bold text-orange-accent">
                   {activeBlade.turnaround}
                 </p>
               </div>

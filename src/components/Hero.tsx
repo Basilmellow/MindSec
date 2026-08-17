@@ -25,7 +25,7 @@ export const Hero: React.FC = () => {
             transition={{ duration: 0.5 }}
             className="eyebrow"
           >
-            <Terminal className="h-4 w-4 text-cyan-accent" />
+            <Terminal className="h-4 w-4 text-orange-accent" />
             <span>{BRAND_CONFIG.name} · {BRAND_CONFIG.subtitle}</span>
           </motion.div>
 
@@ -37,10 +37,10 @@ export const Hero: React.FC = () => {
             className="space-y-2 font-heading"
           >
             <h1 className="text-5xl sm:text-7xl lg:text-8xl font-bold tracking-tight text-text-primary uppercase leading-[0.98]">
-              Find the <span className="text-cyan-accent cyan-glow-text">weakness.</span>
+              Find the <span className="text-orange-accent orange-glow-text">weakness.</span>
             </h1>
             <h1 className="text-5xl sm:text-7xl lg:text-8xl font-bold tracking-tight text-text-primary uppercase leading-[0.98]">
-              Fix the <span className="text-white border-b-4 border-cyan-accent">risk.</span>
+              Fix the <span className="text-primary border-b-4 border-orange-accent">risk.</span>
             </h1>
           </motion.div>
 
@@ -54,7 +54,7 @@ export const Hero: React.FC = () => {
             {BRAND_CONFIG.heroSub} Hands-on manual vulnerability testing with actionable remediation engineering for modern platforms.
           </motion.p>
 
-          {/* Nodewave Fast Credibility Badges */}
+          {/* Fast Credibility Badges */}
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
@@ -62,15 +62,15 @@ export const Hero: React.FC = () => {
             className="flex flex-wrap gap-3 font-mono text-[11px]"
           >
             <div className="nw-badge">
-              <ShieldCheck className="h-4 w-4 text-cyan-accent" />
+              <ShieldCheck className="h-4 w-4 text-orange-accent" />
               <span>AUTHORIZED TESTING ONLY</span>
             </div>
             <div className="nw-badge">
-              <FileCheck2 className="h-4 w-4 text-cyan-accent" />
+              <FileCheck2 className="h-4 w-4 text-orange-accent" />
               <span>CLEAR, ACTIONABLE REPORTS</span>
             </div>
             <div className="nw-badge">
-              <Clock3 className="h-4 w-4 text-cyan-accent" />
+              <Clock3 className="h-4 w-4 text-orange-accent" />
               <span>REPLY WITHIN 1 BUSINESS DAY</span>
             </div>
           </motion.div>
@@ -100,7 +100,7 @@ export const Hero: React.FC = () => {
         </div>
       </div>
 
-      {/* Nodewave Live Technical Stats Strip */}
+      {/* Live Technical Stats Strip */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -110,25 +110,25 @@ export const Hero: React.FC = () => {
         <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 divide-x divide-border-color text-left font-mono">
           <div className="p-4 sm:p-5 space-y-1">
             <div className="text-2xl font-bold text-text-primary tracking-tight">
-              100<small className="text-xs text-cyan-accent ml-1">%</small>
+              100<small className="text-xs text-orange-accent ml-1">%</small>
             </div>
             <div className="text-[11px] text-text-secondary">Manual Testing Validation</div>
           </div>
           <div className="p-4 sm:p-5 space-y-1">
             <div className="text-2xl font-bold text-text-primary tracking-tight">
-              &lt; 24<small className="text-xs text-cyan-accent ml-1">h</small>
+              &lt; 24<small className="text-xs text-orange-accent ml-1">h</small>
             </div>
             <div className="text-[11px] text-text-secondary">Initial Response Turnaround</div>
           </div>
           <div className="p-4 sm:p-5 space-y-1">
             <div className="text-2xl font-bold text-text-primary tracking-tight">
-              0<small className="text-xs text-cyan-accent ml-1">Noise</small>
+              0<small className="text-xs text-orange-accent ml-1">Noise</small>
             </div>
             <div className="text-[11px] text-text-secondary">False Positive Elimination</div>
           </div>
           <div className="p-4 sm:p-5 space-y-1">
             <div className="text-2xl font-bold text-text-primary tracking-tight">
-              1x<small className="text-xs text-cyan-accent ml-1">Free</small>
+              1x<small className="text-xs text-orange-accent ml-1">Free</small>
             </div>
             <div className="text-[11px] text-text-secondary">Retest Verification Included</div>
           </div>

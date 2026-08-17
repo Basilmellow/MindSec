@@ -8,25 +8,34 @@ module.exports = {
     extend: {
       colors: {
         bg: {
-          canvas: "#07090D",
-          surface: "#0D1117",
-          card: "#11161D",
-          border: "#202833",
+          canvas: "#050608",
+          surface: "#0D0E12",
+          surface2: "#14151A",
+          card: "#121318",
+          border: "#22242C",
+          border2: "#353742",
         },
-        primary: "#F2F5F7",
-        secondary: "#8A96A3",
+        primary: "#FAF8F5",
+        secondary: "#9E9A93",
+        muted: "#68645D",
         cyan: {
-          accent: "#00E5FF",
-          glow: "rgba(0, 229, 255, 0.15)",
+          accent: "#FF5722", // Burnt Orange primary accent mapping
+          glow: "rgba(255, 87, 34, 0.25)",
         },
-        blue: {
-          accent: "#3B82F6",
+        orange: {
+          accent: "#FF5722", // Burnt Orange
+          deep: "#E64A19",
+          glow: "rgba(255, 87, 34, 0.25)",
+        },
+        amber: {
+          accent: "#E5A93C", // Muted Amber
+          glow: "rgba(229, 169, 60, 0.2)",
         },
         alert: {
-          critical: "#FF3366",
-          high: "#FF6B00",
-          medium: "#EAB308",
-          low: "#22C55E",
+          critical: "#F44336",
+          high: "#FF5722",
+          medium: "#E5A93C",
+          low: "#4CAF50",
         }
       },
       fontFamily: {

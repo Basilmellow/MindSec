@@ -94,18 +94,18 @@ export const HeroVisual: React.FC = () => {
             </h3>
           </div>
           <span className="nw-badge">
-            <span className="h-1.5 w-1.5 rounded-full bg-cyan-accent animate-ping" />
+            <span className="h-1.5 w-1.5 rounded-full bg-orange-accent animate-ping" />
             HOVER TO INSPECT BOUNDARY
           </span>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
           {/* Connection Topology Diagram */}
-          <div className="lg:col-span-2 bg-bg-surface border border-border-color rounded-xl p-6 relative flex flex-col justify-between min-h-[380px] shadow-[0_15px_35px_rgba(0,0,0,0.4)]">
+          <div className="lg:col-span-2 bg-bg-surface border border-border-color rounded-xl p-6 relative flex flex-col justify-between min-h-[380px] shadow-[0_15px_35px_rgba(0,0,0,0.5)]">
             {/* Top Bar Status */}
             <div className="flex items-center justify-between text-xs font-mono text-text-secondary border-b border-border-color pb-3 mb-6">
               <div className="flex items-center space-x-2">
-                <span className="h-2 w-2 rounded-full bg-cyan-accent animate-pulse" />
+                <span className="h-2 w-2 rounded-full bg-orange-accent animate-pulse" />
                 <span className="text-text-primary font-semibold">ATTACK PATH SIMULATION: READY</span>
               </div>
               <span>8 ARCHITECTURE VECTORS</span>
@@ -124,14 +124,14 @@ export const HeroVisual: React.FC = () => {
                     whileHover={{ scale: 1.04 }}
                     className={`cursor-pointer p-4 rounded-lg border transition-all flex flex-col items-center justify-center text-center space-y-2 relative ${
                       isSelected
-                        ? 'bg-bg-surface-2 border-cyan-accent shadow-[0_0_20px_rgba(0,229,255,0.25)]'
+                        ? 'bg-bg-surface-2 border-orange-accent shadow-[0_0_20px_rgba(255,87,34,0.3)]'
                         : 'bg-bg-card border-border-color hover:border-border-color-2'
                     }`}
                   >
                     <div
                       className={`p-2.5 rounded ${
                         isSelected
-                          ? 'bg-cyan-accent/20 text-cyan-accent'
+                          ? 'bg-orange-accent/20 text-orange-accent'
                           : 'bg-bg-surface text-text-secondary'
                       }`}
                     >
@@ -145,7 +145,7 @@ export const HeroVisual: React.FC = () => {
                     </span>
 
                     {isSelected && (
-                      <span className="absolute -top-1 -right-1 h-2.5 w-2.5 rounded-full bg-cyan-accent shadow-[0_0_8px_rgba(0,229,255,0.8)]" />
+                      <span className="absolute -top-1 -right-1 h-2.5 w-2.5 rounded-full bg-orange-accent shadow-[0_0_8px_rgba(255,87,34,0.8)]" />
                     )}
                   </motion.div>
                 );
@@ -154,16 +154,16 @@ export const HeroVisual: React.FC = () => {
 
             {/* Path Flow Status Bar */}
             <div className="mt-6 pt-4 border-t border-border-color flex flex-wrap items-center justify-between text-[11px] font-mono text-text-secondary gap-2">
-              <span className="text-cyan-accent">FLOW: INTERNET → WAF → API / APP → AUTH → DATA</span>
+              <span className="text-orange-accent">FLOW: INTERNET → WAF → API / APP → AUTH → DATA</span>
               <span>STATE: AUTHORIZED PENETRATION SCOPE</span>
             </div>
           </div>
 
           {/* Node Detail Card */}
-          <div className="bg-bg-surface-2 border border-border-color rounded-xl p-6 flex flex-col justify-between shadow-[0_15px_35px_rgba(0,0,0,0.3)]">
+          <div className="bg-bg-surface-2 border border-border-color rounded-xl p-6 flex flex-col justify-between shadow-[0_15px_35px_rgba(0,0,0,0.4)]">
             <div className="space-y-4">
               <div className="flex items-center justify-between border-b border-border-color pb-3">
-                <span className="font-mono text-xs text-cyan-accent font-bold tracking-wider">
+                <span className="font-mono text-xs text-orange-accent font-bold tracking-wider">
                   [{activeNode.category}]
                 </span>
                 <span className="font-mono text-xs text-text-muted">{activeNode.label}</span>
@@ -180,7 +180,7 @@ export const HeroVisual: React.FC = () => {
 
               <div className="bg-bg-surface p-3.5 rounded border border-border-color space-y-1 font-mono text-xs">
                 <div className="text-text-muted">SECURITY TESTING GOAL:</div>
-                <div className="text-cyan-accent font-medium">
+                <div className="text-orange-accent font-medium">
                   Identify logic bypasses & authorization vulnerabilities
                 </div>
               </div>

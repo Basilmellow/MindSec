@@ -91,28 +91,28 @@ export const PricingSection: React.FC = () => {
         {/* Section Header */}
         <div className="max-w-3xl space-y-4">
           <div className="eyebrow">
-            <Terminal className="h-4 w-4 text-cyan-accent" />
-            <span>UPDATED LOWER ENGAGEMENT PRICING</span>
+            <Terminal className="h-4 w-4 text-orange-accent" />
+            <span>TRANSPARENT LOWERED ENGAGEMENT PRICING</span>
           </div>
           <h2 className="font-heading text-3xl font-bold tracking-tight text-text-primary sm:text-5xl">
-            PREMIUM SECURITY THAT FITS YOUR BUDGET.
+            SECURITY THAT FITS A SMALL TEAM.
           </h2>
           <p className="max-w-2xl text-lg font-light leading-relaxed text-text-secondary">
-            Transparent, reduced rates for high-impact security assessments. Zero automated report fluff—100% manual testing by senior practitioners.
+            Clear starting prices for focused scopes. No scanner-only reports, no surprise fees—just manual testing and actionable next steps.
           </p>
         </div>
 
-        {/* Nodewave-style Interactive Tier Rail */}
-        <div className="bg-bg-card border border-border-color rounded-xl p-6 sm:p-8 space-y-6 shadow-[0_15px_40px_rgba(0,0,0,0.3)]">
+        {/* Nodewave Interactive Tier Rail */}
+        <div className="bg-bg-card border border-border-color rounded-xl p-6 sm:p-8 space-y-6 shadow-[0_15px_40px_rgba(0,0,0,0.5)]">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between border-b border-border-color pb-4 gap-2">
             <div className="flex items-center gap-2">
-              <Zap className="h-4 w-4 text-cyan-accent" />
-              <span className="font-mono text-xs font-bold text-cyan-accent tracking-widest uppercase">
+              <Zap className="h-4 w-4 text-orange-accent" />
+              <span className="font-mono text-xs font-bold text-orange-accent tracking-widest uppercase">
                 INTERACTIVE SCOPE ALLOCATOR
               </span>
             </div>
             <span className="nw-badge">
-              <Award className="h-3.5 w-3.5 text-cyan-accent" />
+              <Award className="h-3.5 w-3.5 text-amber-accent" />
               LOWERED STARTING RATES
             </span>
           </div>
@@ -132,7 +132,7 @@ export const PricingSection: React.FC = () => {
                   <span className={`font-mono text-xs ${isSelected ? 'text-text-primary font-bold' : 'text-text-muted'}`}>
                     0{idx + 1} <small className="hidden sm:inline">[{plan.name.split(' ')[0]}]</small>
                   </span>
-                  <span className="font-mono text-[11px] text-cyan-accent font-bold">
+                  <span className="font-mono text-[11px] text-orange-accent font-bold">
                     {plan.price}
                   </span>
                 </button>
@@ -167,7 +167,7 @@ export const PricingSection: React.FC = () => {
                         key={i}
                         className={`h-3 w-3 rounded-sm border ${
                           i < activePlan.pipsCount
-                            ? 'bg-cyan-accent border-cyan-accent shadow-[0_0_8px_rgba(0,229,255,0.6)]'
+                            ? 'bg-orange-accent border-orange-accent shadow-[0_0_8px_rgba(255,87,34,0.6)]'
                             : 'bg-bg-canvas border-border-color'
                         }`}
                       />
@@ -187,7 +187,7 @@ export const PricingSection: React.FC = () => {
                   <span className="font-mono text-xs text-text-muted line-through">
                     {activePlan.wasPrice}
                   </span>
-                  <span className="nw-badge !py-0.5 !px-2.5 text-[10px] text-cyan-accent border-cyan-accent/50">
+                  <span className="nw-badge !py-0.5 !px-2.5 text-[10px] text-orange-accent border-orange-accent/50">
                     {activePlan.savings}
                   </span>
                 </div>
@@ -209,19 +209,19 @@ export const PricingSection: React.FC = () => {
               key={plan.id}
               className={`relative flex flex-col justify-between rounded-xl border p-6 sm:p-8 transition-all duration-300 ${
                 plan.featured
-                  ? 'border-cyan-accent bg-bg-surface-2 shadow-[0_0_35px_rgba(0,229,255,0.18)] scale-[1.02]'
+                  ? 'border-orange-accent bg-bg-surface-2 shadow-[0_0_35px_rgba(255,87,34,0.2)] scale-[1.02]'
                   : 'border-border-color bg-bg-surface hover:border-border-color-2'
               }`}
             >
               {plan.featured && (
-                <span className="absolute -top-3.5 left-6 rounded bg-cyan-accent px-3 py-1 font-mono text-[10px] font-bold tracking-wider text-bg-canvas shadow-[0_0_12px_rgba(0,229,255,0.5)]">
+                <span className="absolute -top-3.5 left-6 rounded bg-orange-accent px-3 py-1 font-mono text-[10px] font-bold tracking-wider text-bg-canvas shadow-[0_0_12px_rgba(255,87,34,0.5)]">
                   MOST POPULAR SCOPE
                 </span>
               )}
 
               <div className="space-y-6">
                 <div className="space-y-3">
-                  <span className="font-mono text-xs font-bold tracking-wider text-cyan-accent">
+                  <span className="font-mono text-xs font-bold tracking-wider text-orange-accent">
                     {plan.name}
                   </span>
 
@@ -233,7 +233,7 @@ export const PricingSection: React.FC = () => {
                       <span className="font-mono text-sm text-text-muted line-through">
                         {plan.wasPrice}
                       </span>
-                      <span className="text-xs font-mono text-cyan-accent font-bold">
+                      <span className="text-xs font-mono text-amber-accent font-bold">
                         {plan.savings}
                       </span>
                     </div>
@@ -250,7 +250,7 @@ export const PricingSection: React.FC = () => {
                 <ul className="space-y-3 border-t border-border-color pt-6 font-mono text-xs text-text-secondary">
                   {plan.features.map((feature, i) => (
                     <li key={i} className="flex gap-2.5">
-                      <Check className="mt-0.5 h-4 w-4 shrink-0 text-cyan-accent" />
+                      <Check className="mt-0.5 h-4 w-4 shrink-0 text-orange-accent" />
                       <span>{feature}</span>
                     </li>
                   ))}
@@ -274,22 +274,22 @@ export const PricingSection: React.FC = () => {
         {/* Custom Quote Notice */}
         <div className="flex flex-col gap-4 rounded-xl border border-border-color bg-bg-surface-2 p-6 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex gap-4">
-            <ShieldCheck className="mt-1 h-6 w-6 shrink-0 text-cyan-accent" />
+            <ShieldCheck className="mt-1 h-6 w-6 shrink-0 text-orange-accent" />
             <p className="text-sm leading-relaxed text-text-secondary">
-              <span className="font-medium text-text-primary">Need multi-role apps, extensive APIs, or compliance retests?</span>{' '}
-              Custom scopes are tailored precisely to your application architecture without hidden charges.
+              <span className="font-medium text-text-primary">Need a larger or compliance-driven assessment?</span>{' '}
+              Multi-role applications, extensive APIs, cloud environments, and retesting are scoped individually.
             </p>
           </div>
           <a
             href="#contact"
-            className="shrink-0 btn-nw btn-nw-ghost text-cyan-accent border-cyan-accent/40 hover:border-cyan-accent"
+            className="shrink-0 btn-nw btn-nw-ghost text-orange-accent border-orange-accent/40 hover:border-orange-accent"
           >
             [ GET A CUSTOM QUOTE → ]
           </a>
         </div>
 
         <p className="font-mono text-[11px] leading-relaxed text-text-muted text-center sm:text-left">
-          Prices are in USD and reflect authorized, single-target testing. Final scope is confirmed after a 10-minute discovery check; complex platforms receive individual custom quotes.
+          Prices are in USD and reflect a clearly defined, authorized scope. Final pricing is confirmed after a short scoping call; complex environments may require a custom quote.
         </p>
       </div>
     </section>
