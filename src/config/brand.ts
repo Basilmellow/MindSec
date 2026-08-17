@@ -12,8 +12,11 @@ export const BRAND_CONFIG = {
     github: "https://github.com/Basilmellow",
     linkedin: "https://www.linkedin.com/in/mohamed-basil-966a8225a/",
   },
+  companyLinkedin: "https://www.linkedin.com/company/kraxxsec/about/?viewAsMember=true",
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://kraxxsec.com",
-  contactEmail: process.env.NEXT_PUBLIC_CONTACT_EMAIL || "assessment@kraxxsec.com",
+  contactEmail: process.env.NEXT_PUBLIC_CONTACT_EMAIL || "kraxxsec@gmail.com",
+  logoUrl: "/kraxxsec-logo.png",
+  iconUrl: "/kraxxsec-icon.jpg",
   statusStrip: [
     { label: "ASSESSMENT ENGINE", status: "ONLINE", ready: true },
     { label: "APPLICATIONS", status: "READY", ready: true },

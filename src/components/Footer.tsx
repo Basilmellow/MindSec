@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { ShieldAlert, ArrowUpRight, Github, Linkedin, Mail } from 'lucide-react';
+import { ArrowUpRight, Github, Linkedin, Mail } from 'lucide-react';
 import { BRAND_CONFIG } from '@/config/brand';
 
 export const Footer: React.FC = () => {
@@ -13,17 +13,11 @@ export const Footer: React.FC = () => {
           {/* Brand Col */}
           <div className="md:col-span-5 space-y-4">
             <div className="flex items-center space-x-3">
-              <div className="h-8 w-8 rounded border border-orange-accent/40 bg-bg-canvas flex items-center justify-center">
-                <ShieldAlert className="h-4 w-4 text-orange-accent" />
-              </div>
-              <div>
-                <span className="font-heading font-bold text-lg text-text-primary tracking-wider block">
-                  {BRAND_CONFIG.name}
-                </span>
-                <span className="text-[10px] text-text-secondary tracking-widest uppercase block">
-                  {BRAND_CONFIG.subtitle}
-                </span>
-              </div>
+              <img
+                src={BRAND_CONFIG.logoUrl}
+                alt={BRAND_CONFIG.name}
+                className="h-9 w-auto object-contain max-w-[220px]"
+              />
             </div>
 
             <p className="text-text-secondary leading-relaxed max-w-md font-sans text-xs">
@@ -48,19 +42,19 @@ export const Footer: React.FC = () => {
             <ul className="space-y-2 text-text-secondary">
               <li>
                 <a href="/services/web-application-security" className="hover:text-orange-accent transition-colors flex items-center gap-1">
-                  <span>Web App Security</span>
+                  <span>Web App Security ($499)</span>
                   <ArrowUpRight className="h-3 w-3 text-text-muted" />
                 </a>
               </li>
               <li>
                 <a href="/services/api-security" className="hover:text-orange-accent transition-colors flex items-center gap-1">
-                  <span>API Security Testing</span>
+                  <span>API Security Testing ($399)</span>
                   <ArrowUpRight className="h-3 w-3 text-text-muted" />
                 </a>
               </li>
               <li>
                 <a href="/services/vulnerability-assessment" className="hover:text-orange-accent transition-colors flex items-center gap-1">
-                  <span>Vulnerability Assessment</span>
+                  <span>Vulnerability Assessment ($149)</span>
                   <ArrowUpRight className="h-3 w-3 text-text-muted" />
                 </a>
               </li>
@@ -134,11 +128,11 @@ export const Footer: React.FC = () => {
                 <Github className="h-4 w-4" />
               </a>
               <a
-                href={BRAND_CONFIG.founder.linkedin}
+                href={BRAND_CONFIG.companyLinkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 rounded bg-bg-canvas border border-border-color text-text-secondary hover:text-text-primary hover:border-orange-accent transition-all"
-                aria-label="LinkedIn Profile"
+                aria-label="KRAXXSEC LinkedIn Company Profile"
               >
                 <Linkedin className="h-4 w-4" />
               </a>
@@ -156,7 +150,7 @@ export const Footer: React.FC = () => {
         {/* Bottom Strip */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-text-muted">
           <div>
-            © 2026 {BRAND_CONFIG.name}. A KRAXX company. All rights reserved. Authorized security testing only.
+            © 2026 {BRAND_CONFIG.name}. A KRAXX company. All rights reserved. Authorized security testing only. Contact: {BRAND_CONFIG.contactEmail}
           </div>
 
           <div className="flex items-center space-x-4">

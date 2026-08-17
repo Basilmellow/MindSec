@@ -2,18 +2,24 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Send, AlertCircle, CheckCircle2, Lock } from 'lucide-react';
+import { Send, AlertCircle, CheckCircle2, Lock, Tag } from 'lucide-react';
 import { ContactFormData } from '@/types';
 import { BRAND_CONFIG } from '@/config/brand';
 
-const SERVICES_OPTIONS = [
-  'Web Application Security Testing',
-  'API Security Assessment',
-  'Vulnerability Assessment',
-  'Security Audit & Assessment',
-  'Security Hardening & Remediation',
-  'Cybersecurity Consulting',
-  'Not Sure / Custom Scope',
+interface ServiceOptionItem {
+  id: string;
+  label: string;
+  startingPrice: string;
+}
+
+const SERVICES_OPTIONS: ServiceOptionItem[] = [
+  { id: 'webapp', label: 'Web Application Security Testing', startingPrice: 'Starting at $499' },
+  { id: 'api', label: 'API Security Assessment', startingPrice: 'Starting at $399' },
+  { id: 'vuln', label: 'Security Snapshot / Vulnerability Assessment', startingPrice: 'Starting at $149' },
+  { id: 'audit', label: 'Security Audit & Architecture Review', startingPrice: 'Custom Scope' },
+  { id: 'hardening', label: 'Security Hardening & Remediation', startingPrice: 'Included in Scope / Custom' },
+  { id: 'consulting', label: 'Cybersecurity Consulting', startingPrice: 'Retainer / Monthly' },
+  { id: 'custom', label: 'Not Sure / Custom Scope', startingPrice: 'Flexible Scope' },
 ];
 
 export const ContactSection: React.FC = () => {
@@ -22,15 +28,17 @@ export const ContactSection: React.FC = () => {
     email: '',
     company: '',
     target: '',
-    service: 'Web Application Security Testing',
+    service: SERVICES_OPTIONS[0].label,
     message: '',
-    hp_field_x7q: '', // Opaque Honeypot
+    hp_field_x7q: '',
     authorized: false,
   });
 
   const [loading, setLoading] = useState(false);
   const [serverSuccess, setServerSuccess] = useState<string | null>(null);
   const [serverError, setServerError] = useState<string | null>(null);
+
+  const selectedServiceObj = SERVICES_OPTIONS.find((s) => s.label === formData.service) || SERVICES_OPTIONS[0];
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -60,7 +68,7 @@ export const ContactSection: React.FC = () => {
           email: '',
           company: '',
           target: '',
-          service: 'Web Application Security Testing',
+          service: SERVICES_OPTIONS[0].label,
           message: '',
           hp_field_x7q: '',
           authorized: false,
@@ -89,7 +97,7 @@ export const ContactSection: React.FC = () => {
             REQUEST A SECURITY ASSESSMENT.
           </h2>
           <p className="text-xl text-text-secondary max-w-2xl font-light">
-            Tell us about your application or API scope. We will help define the exact Rules of Engagement.
+            Select your assessment service below. Indicative rates match defined scope boundaries.
           </p>
         </div>
 
@@ -193,10 +201,10 @@ export const ContactSection: React.FC = () => {
                     />
                   </div>
 
-                  {/* Service Selection */}
+                  {/* Service Selection with Matched Pricing */}
                   <div className="space-y-2">
-                    <label htmlFor="contact-service" className="block text-text-secondary uppercase font-bold">
-                      PRIMARY SERVICE <span className="text-orange-accent">*</span>
+                    <label htmlFor="contact-service" className="block text-text-secondary uppercase font-bold flex items-center justify-between">
+                      <span>PRIMARY SERVICE <span className="text-orange-accent">*</span></span>
                     </label>
                     <select
                       id="contact-service"
@@ -205,12 +213,23 @@ export const ContactSection: React.FC = () => {
                       className="w-full bg-bg-card border border-border-color rounded p-3 text-text-primary focus:border-orange-accent focus:outline-none transition-colors"
                     >
                       {SERVICES_OPTIONS.map((opt) => (
-                        <option key={opt} value={opt} className="bg-bg-card text-text-primary">
-                          {opt}
+                        <option key={opt.id} value={opt.label} className="bg-bg-card text-text-primary">
+                          {opt.label} — [{opt.startingPrice}]
                         </option>
                       ))}
                     </select>
                   </div>
+                </div>
+
+                {/* Selected Service Pricing Sync Badge */}
+                <div className="bg-bg-surface-2 p-3.5 rounded border border-border-color flex items-center justify-between font-mono text-xs">
+                  <div className="flex items-center space-x-2 text-text-secondary">
+                    <Tag className="h-4 w-4 text-orange-accent" />
+                    <span>INDICATIVE SERVICE RATE:</span>
+                  </div>
+                  <span className="font-bold text-orange-accent border border-orange-accent/40 bg-orange-accent/10 px-2.5 py-1 rounded">
+                    {selectedServiceObj.startingPrice}
+                  </span>
                 </div>
 
                 {/* Target Scope */}
@@ -302,11 +321,6 @@ export const ContactSection: React.FC = () => {
               <div className="bg-bg-surface p-3.5 rounded border border-border-color flex items-center justify-between">
                 <span className="text-text-muted">INITIAL RESPONSE</span>
                 <span className="text-text-primary font-bold">WITHIN 1 BUSINESS DAY</span>
-              </div>
-
-              <div className="bg-bg-surface p-3.5 rounded border border-border-color flex items-center justify-between">
-                <span className="text-text-muted">TESTING PERMISSION</span>
-                <span className="text-text-primary font-bold">AUTHORIZED ONLY</span>
               </div>
 
               <div className="bg-bg-surface p-3.5 rounded border border-border-color flex items-center justify-between">

@@ -4,7 +4,7 @@ import { Footer } from '@/components/Footer';
 import { ContactSection } from '@/components/ContactSection';
 import { PricingSection } from '@/components/PricingSection';
 import { BRAND_CONFIG } from '@/config/brand';
-import { ShieldCheck, Check, ArrowRight, Lock, FileCheck2, Terminal, Cpu } from 'lucide-react';
+import { ShieldCheck, Check, ArrowRight, Lock, FileCheck2, Terminal, Cpu, Clock, RefreshCw } from 'lucide-react';
 
 export const metadata = {
   title: `Security Assessment for Your Application | ${BRAND_CONFIG.name}`,
@@ -13,6 +13,39 @@ export const metadata = {
     canonical: `${BRAND_CONFIG.siteUrl}/security-assessment`,
   },
 };
+
+const PROCESS_STEPS = [
+  {
+    number: '01',
+    title: 'SCOPE DEFINITION & ARCHITECTURE REVIEW',
+    description: 'We review your target domains, API routes, user role permissions, and environment setup to establish exact boundaries.',
+    icon: Terminal,
+  },
+  {
+    number: '02',
+    title: 'AUTHORIZATION & RULES OF ENGAGEMENT',
+    description: 'Testing executes exclusively upon signed Rules of Engagement (ROE) and explicit written authorization.',
+    icon: Lock,
+  },
+  {
+    number: '03',
+    title: 'MANUAL-FIRST SECURITY TESTING',
+    description: 'We execute manual vulnerability testing against authentication logic, BOLA/IDOR, session tokens, and business flaws.',
+    icon: ShieldCheck,
+  },
+  {
+    number: '04',
+    title: 'ACTIONABLE REPORT DELIVERY',
+    description: 'You receive an executive summary and detailed findings with developer-ready code fix snippets.',
+    icon: FileCheck2,
+  },
+  {
+    number: '05',
+    title: 'RETESTING & VERIFICATION',
+    description: 'After your engineering team deploys patches, we retest identified vulnerabilities to confirm effective risk remediation.',
+    icon: RefreshCw,
+  },
+];
 
 export default function SecurityAssessmentLandingPage() {
   return (
@@ -53,7 +86,7 @@ export default function SecurityAssessmentLandingPage() {
       </section>
 
       {/* 1. What We Assess */}
-      <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 border-b border-border-color">
         <div className="max-w-3xl space-y-3">
           <span className="font-mono text-xs text-orange-accent font-bold uppercase tracking-wider">01 // TARGET BOUNDARIES</span>
           <h2 className="font-heading text-3xl font-bold text-text-primary uppercase">WHAT WE ASSESS</h2>
@@ -89,31 +122,31 @@ export default function SecurityAssessmentLandingPage() {
         </div>
       </section>
 
-      {/* 2. Who It's For */}
-      <section className="py-16 bg-bg-surface border-t border-b border-border-color">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-          <div className="max-w-3xl space-y-2">
-            <span className="font-mono text-xs text-orange-accent font-bold uppercase tracking-wider">02 // AUDIENCE</span>
-            <h2 className="font-heading text-3xl font-bold text-text-primary uppercase">WHO IT'S FOR</h2>
+      {/* 2. Engagement Process Section with id="process" */}
+      <section id="process" className="py-20 bg-bg-surface border-b border-border-color">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+          <div className="max-w-3xl space-y-3">
+            <span className="font-mono text-xs text-orange-accent font-bold uppercase tracking-wider">02 // ENGAGEMENT METHODOLOGY</span>
+            <h2 className="font-heading text-3xl font-bold text-text-primary uppercase">TYPICAL ENGAGEMENT PROCESS</h2>
+            <p className="text-text-secondary font-sans text-base">
+              A structured 5-step engineering process that ensures thorough testing and clear remediation.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 font-mono text-xs">
-            <div className="bg-bg-card p-5 rounded border border-border-color space-y-2">
-              <span className="text-orange-accent font-bold">SAAS FOUNDERS</span>
-              <p className="text-text-secondary text-[11px] font-sans">Pre-launch security validation to protect early customer data.</p>
-            </div>
-            <div className="bg-bg-card p-5 rounded border border-border-color space-y-2">
-              <span className="text-orange-accent font-bold">CTOS & VPE OF ENG</span>
-              <p className="text-text-secondary text-[11px] font-sans">Actionable security reports without scanner false positive noise.</p>
-            </div>
-            <div className="bg-bg-card p-5 rounded border border-border-color space-y-2">
-              <span className="text-orange-accent font-bold">DEVELOPMENT TEAMS</span>
-              <p className="text-text-secondary text-[11px] font-sans">Developer-ready code remediation snippets and fix verification.</p>
-            </div>
-            <div className="bg-bg-card p-5 rounded border border-border-color space-y-2">
-              <span className="text-orange-accent font-bold">COMPLIANCE PREP</span>
-              <p className="text-text-secondary text-[11px] font-sans">Third-party penetration testing reports for vendor security reviews.</p>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 font-mono text-xs">
+            {PROCESS_STEPS.map((step) => {
+              const IconComp = step.icon;
+              return (
+                <div key={step.number} className="bg-bg-card border border-border-color rounded-xl p-6 space-y-4">
+                  <div className="flex items-center justify-between">
+                    <span className="text-orange-accent font-bold text-lg">{step.number}</span>
+                    <IconComp className="h-5 w-5 text-text-muted" />
+                  </div>
+                  <h3 className="font-heading font-bold text-sm text-text-primary">{step.title}</h3>
+                  <p className="text-text-secondary text-xs font-sans leading-relaxed">{step.description}</p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>

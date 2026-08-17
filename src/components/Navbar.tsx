@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ShieldAlert, ArrowRight } from 'lucide-react';
+import { Menu, X, ArrowRight } from 'lucide-react';
 import { BRAND_CONFIG } from '@/config/brand';
 
 interface NavbarProps {
@@ -33,8 +33,12 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection = 'surface' }) => 
         <div className="flex items-center justify-between gap-4">
           {/* Brand Mark & Title */}
           <a href="/" className="group flex items-center space-x-3 shrink-0">
-            <div className="h-8 w-8 rounded border border-orange-accent/40 bg-bg-surface flex items-center justify-center group-hover:border-orange-accent group-hover:shadow-[0_0_12px_rgba(249,115,22,0.4)] transition-all">
-              <ShieldAlert className="h-4 w-4 text-orange-accent" />
+            <div className="h-9 w-9 rounded-full border border-orange-accent/40 bg-bg-surface overflow-hidden flex items-center justify-center group-hover:border-orange-accent group-hover:shadow-[0_0_14px_rgba(249,115,22,0.5)] transition-all shrink-0">
+              <img
+                src={BRAND_CONFIG.iconUrl}
+                alt={BRAND_CONFIG.name}
+                className="h-full w-full object-cover"
+              />
             </div>
             <div>
               <div className="flex items-baseline gap-2">
