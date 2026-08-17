@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Shield, ArrowRight, Terminal } from 'lucide-react';
+import { ShieldCheck, ArrowRight, Terminal, FileCheck2, Clock3 } from 'lucide-react';
 import { BRAND_CONFIG } from '@/config/brand';
 
 export const Hero: React.FC = () => {
@@ -50,6 +50,27 @@ export const Hero: React.FC = () => {
           >
             {BRAND_CONFIG.heroSub}
           </motion.p>
+
+          {/* Fast credibility cues before the primary conversion action */}
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.25 }}
+            className="grid max-w-3xl grid-cols-1 gap-2 sm:grid-cols-3 font-mono text-[11px]"
+          >
+            <div className="flex items-center gap-2 rounded border border-bg-border bg-bg-surface/80 px-3 py-2.5 text-secondary">
+              <ShieldCheck className="h-4 w-4 shrink-0 text-cyan-accent" />
+              <span>AUTHORIZED TESTING ONLY</span>
+            </div>
+            <div className="flex items-center gap-2 rounded border border-bg-border bg-bg-surface/80 px-3 py-2.5 text-secondary">
+              <FileCheck2 className="h-4 w-4 shrink-0 text-cyan-accent" />
+              <span>CLEAR, ACTIONABLE REPORTS</span>
+            </div>
+            <div className="flex items-center gap-2 rounded border border-bg-border bg-bg-surface/80 px-3 py-2.5 text-secondary">
+              <Clock3 className="h-4 w-4 shrink-0 text-cyan-accent" />
+              <span>REPLY WITHIN 1 BUSINESS DAY</span>
+            </div>
+          </motion.div>
 
           {/* CTAs */}
           <motion.div

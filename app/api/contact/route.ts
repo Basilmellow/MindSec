@@ -23,6 +23,16 @@ function isRateLimited(ip: string): boolean {
   return false;
 }
 
+function escapeHtml(value: string): string {
+  return value.replace(/[&<>'\"]/g, (character) => ({
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    "'": '&#039;',
+    '"': '&quot;',
+  }[character] || character));
+}
+
 export async function POST(req: NextRequest) {
   try {
     // 1. IP Rate Limiting Check
@@ -67,6 +77,13 @@ export async function POST(req: NextRequest) {
     const cleanService = String(service || '').trim().slice(0, 100);
     const cleanMessage = String(message || '').trim().slice(0, 2000);
 
+    const safeName = escapeHtml(cleanName);
+    const safeEmail = escapeHtml(cleanEmail);
+    const safeCompany = escapeHtml(cleanCompany);
+    const safeTarget = escapeHtml(cleanTarget);
+    const safeService = escapeHtml(cleanService);
+    const safeMessage = escapeHtml(cleanMessage);
+
     if (!cleanName) {
       return NextResponse.json({ success: false, error: 'Name is required.' }, { status: 400 });
     }
@@ -107,15 +124,15 @@ export async function POST(req: NextRequest) {
           subject: `[MindSec Assessment Request] ${cleanService} - ${cleanCompany || cleanName}`,
           html: `
             <h2>New Security Assessment Request</h2>
-            <p><strong>Name:</strong> ${cleanName}</p>
-            <p><strong>Email:</strong> ${cleanEmail}</p>
-            <p><strong>Company:</strong> ${cleanCompany || 'N/A'}</p>
-            <p><strong>Target Scope:</strong> ${cleanTarget || 'N/A'}</p>
-            <p><strong>Service:</strong> ${cleanService}</p>
+            <p><strong>Name:</strong> ${safeName}</p>
+            <p><strong>Email:</strong> ${safeEmail}</p>
+            <p><strong>Company:</strong> ${safeCompany || 'N/A'}</p>
+            <p><strong>Target Scope:</strong> ${safeTarget || 'N/A'}</p>
+            <p><strong>Service:</strong> ${safeService}</p>
             <p><strong>Authorization Confirmed:</strong> Yes</p>
             <hr />
             <h3>Message / Scope Details:</h3>
-            <p style="white-space: pre-wrap;">${cleanMessage}</p>
+            <p style="white-space: pre-wrap;">${safeMessage}</p>
           `,
         });
         emailSent = true;

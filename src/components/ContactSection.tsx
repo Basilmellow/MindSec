@@ -150,11 +150,12 @@ export const ContactSection: React.FC = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   {/* Name */}
                   <div className="space-y-2">
-                    <label className="block text-secondary uppercase font-bold">
+                    <label htmlFor="contact-name" className="block text-secondary uppercase font-bold">
                       NAME <span className="text-cyan-accent">*</span>
                     </label>
                     <input
                       type="text"
+                      id="contact-name"
                       required
                       placeholder="e.g. Alex Morgan"
                       value={formData.name}
@@ -165,11 +166,12 @@ export const ContactSection: React.FC = () => {
 
                   {/* Email */}
                   <div className="space-y-2">
-                    <label className="block text-secondary uppercase font-bold">
+                    <label htmlFor="contact-email" className="block text-secondary uppercase font-bold">
                       BUSINESS EMAIL <span className="text-cyan-accent">*</span>
                     </label>
                     <input
                       type="email"
+                      id="contact-email"
                       required
                       placeholder="e.g. alex@company.com"
                       value={formData.email}
@@ -182,11 +184,12 @@ export const ContactSection: React.FC = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   {/* Company */}
                   <div className="space-y-2">
-                    <label className="block text-secondary uppercase font-bold">
+                    <label htmlFor="contact-company" className="block text-secondary uppercase font-bold">
                       COMPANY / ORGANIZATION
                     </label>
                     <input
                       type="text"
+                      id="contact-company"
                       placeholder="e.g. Acme Corp"
                       value={formData.company}
                       onChange={(e) => setFormData({ ...formData, company: e.target.value })}
@@ -196,10 +199,11 @@ export const ContactSection: React.FC = () => {
 
                   {/* Service Selection */}
                   <div className="space-y-2">
-                    <label className="block text-secondary uppercase font-bold">
+                    <label htmlFor="contact-service" className="block text-secondary uppercase font-bold">
                       PRIMARY SERVICE <span className="text-cyan-accent">*</span>
                     </label>
                     <select
+                      id="contact-service"
                       value={formData.service}
                       onChange={(e) => setFormData({ ...formData, service: e.target.value })}
                       className="w-full bg-bg-card border border-bg-border rounded p-3 text-primary focus:border-cyan-accent focus:outline-none transition-colors"
@@ -215,11 +219,12 @@ export const ContactSection: React.FC = () => {
 
                 {/* Target Scope */}
                 <div className="space-y-2">
-                  <label className="block text-secondary uppercase font-bold">
+                  <label htmlFor="contact-target" className="block text-secondary uppercase font-bold">
                     TARGET SCOPE / DOMAINS
                   </label>
                   <input
                     type="text"
+                    id="contact-target"
                     placeholder="e.g. https://api.company.com, app.company.com"
                     value={formData.target}
                     onChange={(e) => setFormData({ ...formData, target: e.target.value })}
@@ -229,11 +234,12 @@ export const ContactSection: React.FC = () => {
 
                 {/* Message */}
                 <div className="space-y-2">
-                  <label className="block text-secondary uppercase font-bold">
+                  <label htmlFor="contact-message" className="block text-secondary uppercase font-bold">
                     ASSESSMENT DETAILS & SCOPE NOTES <span className="text-cyan-accent">*</span>
                   </label>
                   <textarea
                     required
+                    id="contact-message"
                     rows={4}
                     maxLength={2000}
                     placeholder="Describe your platform stack, timeline requirements, and specific areas of concern..."
@@ -245,9 +251,10 @@ export const ContactSection: React.FC = () => {
 
                 {/* Authorization Checkbox */}
                 <div className="bg-bg-card p-4 rounded border border-bg-border space-y-2">
-                  <label className="flex items-start space-x-3 cursor-pointer">
+                  <label htmlFor="contact-authorized" className="flex items-start space-x-3 cursor-pointer">
                     <input
                       type="checkbox"
+                      id="contact-authorized"
                       required
                       checked={formData.authorized}
                       onChange={(e) => setFormData({ ...formData, authorized: e.target.checked })}
