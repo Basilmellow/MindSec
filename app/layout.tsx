@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   metadataBase: new URL(BRAND_CONFIG.siteUrl),
   title: BRAND_CONFIG.name,
   description: BRAND_CONFIG.shortDescription,
+  alternates: {
+    canonical: '/',
+  },
   keywords: [
     'KRAXXSEC',
     'KRAXX',

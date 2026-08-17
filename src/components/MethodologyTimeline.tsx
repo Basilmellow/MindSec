@@ -61,7 +61,7 @@ export const MethodologyTimeline: React.FC = () => {
             EXECUTION METHODOLOGY
           </span>
           <h2 className="text-3xl sm:text-5xl font-heading font-bold text-primary tracking-tight">
-            THE MINDSEC PROCESS
+            THE KRAXXSEC PROCESS
           </h2>
           <p className="text-lg text-secondary max-w-2xl font-light">
             A repeatable, transparent security assessment lifecycle.

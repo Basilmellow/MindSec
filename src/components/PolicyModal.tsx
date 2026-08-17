@@ -19,22 +19,22 @@ export const PolicyModal: React.FC<PolicyModalProps> = ({ isOpen, type, onClose 
       case 'disclosure':
         return {
           title: 'RESPONSIBLE DISCLOSURE POLICY',
-          text: `MindSec maintains a strict zero-tolerance policy against unauthorized system access or extortion. If you discover potential vulnerabilities in MindSec's own public web properties, report details responsibly to ${BRAND_CONFIG.contactEmail}. Do not access or extract customer data, disrupt services, or execute destructive testing. All genuine security reports submitted in good faith will be reviewed promptly.`,
+          text: `${BRAND_CONFIG.name} maintains a strict zero-tolerance policy against unauthorized system access or extortion. If you discover potential vulnerabilities in ${BRAND_CONFIG.name}'s own public web properties, report details responsibly to ${BRAND_CONFIG.contactEmail}. Do not access or extract customer data, disrupt services, or execute destructive testing. All genuine security reports submitted in good faith will be reviewed promptly.`,
         };
       case 'policy':
         return {
           title: 'SECURITY TESTING POLICY',
-          text: `MindSec conducts security testing exclusively under explicit written authorization and agreed Rules of Engagement (RoE) executed with system owners. Unauthorized testing, automated scanning without authorization, or exceeding defined target IP/domain boundaries is strictly prohibited. All testing activities are logged and subject to verified authorization boundaries.`,
+          text: `${BRAND_CONFIG.name} conducts security testing exclusively under explicit written authorization and agreed Rules of Engagement (RoE) executed with system owners. Unauthorized testing, automated scanning without authorization, or exceeding defined target IP/domain boundaries is strictly prohibited. All testing activities are logged and subject to verified authorization boundaries.`,
         };
       case 'privacy':
         return {
           title: 'PRIVACY POLICY',
-          text: `MindSec collects contact details (name, email, company, scope details) submitted through assessment request forms solely for evaluating security consulting scopes and communicating with potential clients. We do not sell, share, or monetize client details. Assessment findings and scope data are handled under strict confidentiality agreements.`,
+          text: `${BRAND_CONFIG.name} collects contact details (name, email, company, scope details) submitted through assessment request forms solely for evaluating security consulting scopes and communicating with potential clients. We do not sell, share, or monetize client details. Assessment findings and scope data are handled under strict confidentiality agreements.`,
         };
       case 'terms':
         return {
           title: 'TERMS OF SERVICE',
-          text: `All services provided by MindSec are governed by formal Master Services Agreements (MSA) and Statement of Work (SOW) documents executed prior to project initiation. Website content, interactive security tools, report previews, and methodology documentation are provided for informational and educational purposes.`,
+          text: `All services provided by ${BRAND_CONFIG.name} are governed by formal Master Services Agreements (MSA) and Statement of Work (SOW) documents executed prior to project initiation. Website content, interactive security tools, report previews, and methodology documentation are provided for informational and educational purposes.`,
         };
     }
   };
