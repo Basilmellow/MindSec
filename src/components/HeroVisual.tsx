@@ -84,36 +84,35 @@ export const HeroVisual: React.FC = () => {
   const [activeNode, setActiveNode] = useState<TechNode>(NODES[3]); // API selected by default
 
   return (
-    <section className="py-12 bg-bg-canvas border-b border-bg-border relative overflow-hidden">
+    <section className="py-12 bg-bg-canvas border-b border-border-color relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-3 mb-8">
           <div>
-            <span className="font-mono text-xs text-cyan-accent uppercase tracking-widest">
-              ARCHITECTURE VISUALIZATION
-            </span>
-            <h3 className="text-xl font-heading font-bold text-primary mt-1">
-              DIGITAL ATTACK SURFACE TOPOLOGY
+            <div className="eyebrow mb-1">ARCHITECTURE TOPOLOGY</div>
+            <h3 className="text-xl font-heading font-bold text-text-primary">
+              INTERACTIVE ATTACK SURFACE MODEL
             </h3>
           </div>
-          <span className="font-mono text-xs text-secondary bg-bg-surface px-3 py-1.5 rounded border border-bg-border">
-            INTERACTIVE SECURITY MODEL
+          <span className="nw-badge">
+            <span className="h-1.5 w-1.5 rounded-full bg-cyan-accent animate-ping" />
+            HOVER TO INSPECT BOUNDARY
           </span>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
-          {/* SVG Connection Diagram */}
-          <div className="lg:col-span-2 bg-bg-surface border border-bg-border rounded-xl p-6 relative flex flex-col justify-between min-h-[380px]">
+          {/* Connection Topology Diagram */}
+          <div className="lg:col-span-2 bg-bg-surface border border-border-color rounded-xl p-6 relative flex flex-col justify-between min-h-[380px] shadow-[0_15px_35px_rgba(0,0,0,0.4)]">
             {/* Top Bar Status */}
-            <div className="flex items-center justify-between text-xs font-mono text-secondary border-b border-bg-border/60 pb-3 mb-6">
+            <div className="flex items-center justify-between text-xs font-mono text-text-secondary border-b border-border-color pb-3 mb-6">
               <div className="flex items-center space-x-2">
-                <span className="h-2 w-2 rounded-full bg-cyan-accent animate-ping" />
-                <span className="text-primary">TRAFFIC SIMULATION: ACTIVE</span>
+                <span className="h-2 w-2 rounded-full bg-cyan-accent animate-pulse" />
+                <span className="text-text-primary font-semibold">ATTACK PATH SIMULATION: READY</span>
               </div>
-              <span>HOVER NODE TO INSPECT</span>
+              <span>8 ARCHITECTURE VECTORS</span>
             </div>
 
-            {/* Architecture Node Flow Layout */}
-            <div className="grid grid-cols-4 gap-4 my-auto relative">
+            {/* Architecture Node Grid */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 my-auto relative">
               {NODES.map((node) => {
                 const IconComponent = node.icon;
                 const isSelected = activeNode.id === node.id;
@@ -122,74 +121,73 @@ export const HeroVisual: React.FC = () => {
                     key={node.id}
                     onMouseEnter={() => setActiveNode(node)}
                     onClick={() => setActiveNode(node)}
-                    whileHover={{ scale: 1.05 }}
+                    whileHover={{ scale: 1.04 }}
                     className={`cursor-pointer p-4 rounded-lg border transition-all flex flex-col items-center justify-center text-center space-y-2 relative ${
                       isSelected
-                        ? 'bg-bg-card border-cyan-accent shadow-[0_0_20px_rgba(0,229,255,0.2)]'
-                        : 'bg-bg-canvas/60 border-bg-border hover:border-cyan-accent/50'
+                        ? 'bg-bg-surface-2 border-cyan-accent shadow-[0_0_20px_rgba(0,229,255,0.25)]'
+                        : 'bg-bg-card border-border-color hover:border-border-color-2'
                     }`}
                   >
                     <div
                       className={`p-2.5 rounded ${
                         isSelected
-                          ? 'bg-cyan-accent/15 text-cyan-accent'
-                          : 'bg-bg-surface text-secondary'
+                          ? 'bg-cyan-accent/20 text-cyan-accent'
+                          : 'bg-bg-surface text-text-secondary'
                       }`}
                     >
                       <IconComponent className="h-5 w-5" />
                     </div>
-                    <span className="font-mono text-xs font-bold tracking-wider text-primary">
+                    <span className="font-mono text-xs font-bold tracking-wider text-text-primary">
                       {node.label}
                     </span>
-                    <span className="font-mono text-[10px] text-secondary">
+                    <span className="font-mono text-[10px] text-text-muted">
                       {node.category}
                     </span>
 
-                    {/* Animated Connection Pulse on Hover */}
                     {isSelected && (
-                      <span className="absolute -top-1 -right-1 h-3 w-3 rounded-full bg-cyan-accent animate-ping" />
+                      <span className="absolute -top-1 -right-1 h-2.5 w-2.5 rounded-full bg-cyan-accent shadow-[0_0_8px_rgba(0,229,255,0.8)]" />
                     )}
                   </motion.div>
                 );
               })}
             </div>
 
-            {/* Packet Animation Status Bar */}
-            <div className="mt-6 pt-4 border-t border-bg-border/60 flex items-center justify-between text-[11px] font-mono text-secondary">
-              <span className="text-cyan-accent">TRAFFIC: INTERNET → APP LAYER → AUTH → DATA</span>
-              <span>STATE: AUTHORIZED PATH INSPECTION</span>
+            {/* Path Flow Status Bar */}
+            <div className="mt-6 pt-4 border-t border-border-color flex flex-wrap items-center justify-between text-[11px] font-mono text-text-secondary gap-2">
+              <span className="text-cyan-accent">FLOW: INTERNET → WAF → API / APP → AUTH → DATA</span>
+              <span>STATE: AUTHORIZED PENETRATION SCOPE</span>
             </div>
           </div>
 
-          {/* Node Technical Detail Panel */}
-          <div className="bg-bg-card border border-bg-border rounded-xl p-6 flex flex-col justify-between">
+          {/* Node Detail Card */}
+          <div className="bg-bg-surface-2 border border-border-color rounded-xl p-6 flex flex-col justify-between shadow-[0_15px_35px_rgba(0,0,0,0.3)]">
             <div className="space-y-4">
-              <div className="flex items-center justify-between border-b border-bg-border pb-3">
-                <span className="font-mono text-xs text-cyan-accent font-semibold tracking-wider">
+              <div className="flex items-center justify-between border-b border-border-color pb-3">
+                <span className="font-mono text-xs text-cyan-accent font-bold tracking-wider">
                   [{activeNode.category}]
                 </span>
-                <span className="font-mono text-xs text-secondary">{activeNode.label}</span>
+                <span className="font-mono text-xs text-text-muted">{activeNode.label}</span>
               </div>
 
               <div>
-                <h4 className="font-heading font-bold text-xl text-primary">
+                <h4 className="font-heading font-bold text-xl text-text-primary">
                   {activeNode.name}
                 </h4>
-                <p className="text-secondary text-sm mt-3 leading-relaxed">
+                <p className="text-text-secondary text-sm mt-3 leading-relaxed">
                   {activeNode.description}
                 </p>
               </div>
 
-              <div className="bg-bg-surface p-3 rounded border border-bg-border space-y-1 font-mono text-xs">
-                <div className="text-secondary">SECURITY FOCUS:</div>
+              <div className="bg-bg-surface p-3.5 rounded border border-border-color space-y-1 font-mono text-xs">
+                <div className="text-text-muted">SECURITY TESTING GOAL:</div>
                 <div className="text-cyan-accent font-medium">
-                  Boundary Validation & Vulnerability Testing
+                  Identify logic bypasses & authorization vulnerabilities
                 </div>
               </div>
             </div>
 
-            <div className="pt-6 border-t border-bg-border text-xs font-mono text-secondary">
-              Click or hover any node in the architecture topology to inspect security boundaries.
+            <div className="pt-6 border-t border-border-color text-xs font-mono text-text-muted">
+              Select any architecture vector node above to examine security inspection points.
             </div>
           </div>
         </div>

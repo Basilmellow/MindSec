@@ -55,21 +55,19 @@ export const Section01Surface: React.FC = () => {
   const activeItem = SURFACE_ITEMS.find((s) => s.id === selectedId) || SURFACE_ITEMS[0];
 
   return (
-    <section id="surface" className="py-24 bg-bg-canvas border-b border-bg-border relative">
+    <section id="surface" className="py-24 bg-bg-canvas border-b border-border-color relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="space-y-4 mb-16">
           <div className="flex items-center space-x-3">
             <span className="font-mono text-cyan-accent font-bold text-4xl sm:text-6xl">01</span>
             <span className="h-[2px] w-12 bg-cyan-accent" />
-            <span className="font-mono text-xs text-secondary tracking-widest uppercase">
-              ATTACK SURFACE ANALYSIS
-            </span>
+            <span className="eyebrow">ATTACK SURFACE ANALYSIS</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-heading font-bold text-primary tracking-tight">
+          <h2 className="text-3xl sm:text-5xl font-heading font-bold text-text-primary tracking-tight">
             THE SURFACE
           </h2>
-          <blockquote className="text-xl sm:text-2xl text-secondary max-w-2xl font-light italic border-l-2 border-cyan-accent pl-4">
+          <blockquote className="text-xl sm:text-2xl text-text-secondary max-w-2xl font-light italic border-l-2 border-cyan-accent pl-4">
             &ldquo;Every connected system creates an attack surface.&rdquo;
           </blockquote>
         </div>
@@ -86,30 +84,30 @@ export const Section01Surface: React.FC = () => {
                   onClick={() => setSelectedId(item.id)}
                   className={`w-full text-left p-5 rounded-lg border transition-all flex items-center justify-between group ${
                     isSelected
-                      ? 'bg-bg-card border-cyan-accent shadow-[0_0_15px_rgba(0,229,255,0.15)]'
-                      : 'bg-bg-surface border-bg-border hover:border-cyan-accent/40'
+                      ? 'bg-bg-surface-2 border-cyan-accent shadow-[0_0_20px_rgba(0,229,255,0.2)]'
+                      : 'bg-bg-surface border-border-color hover:border-cyan-accent/40'
                   }`}
                 >
                   <div className="space-y-1">
                     <div className="flex items-center space-x-2">
                       <span
                         className={`font-mono text-xs font-bold px-2 py-0.5 rounded ${
-                          isSelected ? 'bg-cyan-accent text-bg-canvas' : 'bg-bg-canvas text-cyan-accent'
+                          isSelected ? 'bg-cyan-accent text-bg-canvas' : 'bg-bg-card text-cyan-accent border border-border-color'
                         }`}
                       >
                         {item.id}
                       </span>
-                      <span className="font-heading font-bold text-primary text-base">
+                      <span className="font-heading font-bold text-text-primary text-base">
                         {item.title}
                       </span>
                     </div>
-                    <p className="text-xs text-secondary line-clamp-1 pl-1">
+                    <p className="text-xs text-text-secondary line-clamp-1 pl-1">
                       {item.shortDesc}
                     </p>
                   </div>
                   <ChevronRight
                     className={`h-5 w-5 transition-transform ${
-                      isSelected ? 'text-cyan-accent translate-x-1' : 'text-secondary/40 group-hover:text-primary'
+                      isSelected ? 'text-cyan-accent translate-x-1' : 'text-text-muted group-hover:text-text-primary'
                     }`}
                   />
                 </button>
@@ -126,36 +124,36 @@ export const Section01Surface: React.FC = () => {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
                 transition={{ duration: 0.25 }}
-                className="bg-bg-surface border border-bg-border rounded-xl p-8 h-full flex flex-col justify-between"
+                className="bg-bg-surface border border-border-color rounded-xl p-8 h-full flex flex-col justify-between shadow-[0_15px_35px_rgba(0,0,0,0.3)]"
               >
                 <div className="space-y-6">
-                  <div className="flex items-center justify-between border-b border-bg-border pb-4">
+                  <div className="flex items-center justify-between border-b border-border-color pb-4">
                     <div>
                       <span className="font-mono text-xs text-cyan-accent font-semibold tracking-wider">
                         TARGET SURFACE [ 01 / {activeItem.id} ]
                       </span>
-                      <h3 className="text-2xl font-heading font-bold text-primary mt-1">
+                      <h3 className="text-2xl font-heading font-bold text-text-primary mt-1">
                         {activeItem.title}
                       </h3>
                     </div>
-                    <span className="font-mono text-xs bg-cyan-accent/10 text-cyan-accent px-3 py-1 rounded border border-cyan-accent/20">
+                    <span className="nw-badge">
                       SCOPE FOCUS
                     </span>
                   </div>
 
-                  <p className="text-secondary text-base leading-relaxed">
+                  <p className="text-text-secondary text-base leading-relaxed">
                     {activeItem.fullDesc}
                   </p>
 
                   <div className="space-y-3 pt-2">
-                    <h4 className="font-mono text-xs font-bold text-primary uppercase tracking-wider">
+                    <h4 className="font-mono text-xs font-bold text-text-primary uppercase tracking-wider">
                       PRIMARY TESTING VECTORS:
                     </h4>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                       {activeItem.vectors.map((vector, index) => (
                         <div
                           key={index}
-                          className="flex items-center space-x-2 bg-bg-card p-3 rounded border border-bg-border font-mono text-xs text-primary"
+                          className="flex items-center space-x-2 bg-bg-card p-3 rounded border border-border-color font-mono text-xs text-text-primary"
                         >
                           <span className="h-1.5 w-1.5 rounded-full bg-cyan-accent" />
                           <span>{vector}</span>
@@ -165,8 +163,8 @@ export const Section01Surface: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="mt-8 pt-4 border-t border-bg-border flex items-center justify-between text-xs font-mono text-secondary">
-                  <span>METHOD: AUTHORIZED MANUAL & AUTOMATED ANALYSIS</span>
+                <div className="mt-8 pt-4 border-t border-border-color flex items-center justify-between text-xs font-mono text-text-secondary">
+                  <span>METHOD: AUTHORIZED MANUAL & HYBRID ANALYSIS</span>
                   <span className="text-cyan-accent font-medium">STATUS: READY</span>
                 </div>
               </motion.div>

@@ -28,6 +28,7 @@ export const BRAND_CONFIG = {
     { id: "fix", label: "05 / FIX", href: "#fix" },
     { id: "research", label: "RESEARCH", href: "#research" },
     { id: "about", label: "ABOUT", href: "#about" },
+    { id: "pricing", label: "PRICING", href: "#pricing" },
     { id: "contact", label: "CONTACT", href: "#contact" },
   ],
 };

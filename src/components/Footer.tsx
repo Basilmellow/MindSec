@@ -9,7 +9,7 @@ export const Footer: React.FC = () => {
   const [modalType, setModalType] = useState<'privacy' | 'terms' | 'disclosure' | 'policy' | null>(null);
 
   return (
-    <footer className="bg-bg-canvas border-t border-bg-border py-16 font-mono text-xs text-secondary">
+    <footer className="bg-bg-canvas border-t border-border-color py-16 font-mono text-xs text-text-secondary">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         {/* Top Grid */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
@@ -19,21 +19,21 @@ export const Footer: React.FC = () => {
               <div className="h-7 w-7 rounded border border-cyan-accent/40 bg-bg-surface flex items-center justify-center">
                 <ShieldAlert className="h-4 w-4 text-cyan-accent" />
               </div>
-              <span className="font-heading font-bold text-lg text-primary tracking-wider">
+              <span className="font-heading font-bold text-lg text-text-primary tracking-wider">
                 {BRAND_CONFIG.name}
               </span>
             </div>
-            <p className="text-secondary font-mono text-xs">
+            <p className="text-text-secondary font-mono text-xs">
               {BRAND_CONFIG.subtitle}
             </p>
-            <p className="text-primary font-heading font-semibold text-sm">
+            <p className="text-text-primary font-heading font-semibold text-sm">
               &ldquo;{BRAND_CONFIG.tagline}&rdquo;
             </p>
           </div>
 
           {/* Quick Nav Col */}
           <div className="md:col-span-4 space-y-3">
-            <span className="text-primary font-bold tracking-wider uppercase block">
+            <span className="text-text-primary font-bold tracking-wider uppercase block">
               SECURITY STACK NAVIGATION
             </span>
             <div className="grid grid-cols-2 gap-2 text-xs">
@@ -51,7 +51,7 @@ export const Footer: React.FC = () => {
 
           {/* Legal Col */}
           <div className="md:col-span-3 space-y-3">
-            <span className="text-primary font-bold tracking-wider uppercase block">
+            <span className="text-text-primary font-bold tracking-wider uppercase block">
               LEGAL & POLICIES
             </span>
             <div className="space-y-2 text-xs">
@@ -84,9 +84,9 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Banner */}
-        <div className="pt-8 border-t border-bg-border flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
+        <div className="pt-8 border-t border-border-color flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
           <span>&copy; 2026 {BRAND_CONFIG.name}. All rights reserved.</span>
-          <span className="text-cyan-accent font-bold tracking-widest uppercase bg-bg-surface px-3 py-1 rounded border border-bg-border">
+          <span className="nw-badge !text-cyan-accent">
             AUTHORIZED SECURITY TESTING ONLY.
           </span>
         </div>

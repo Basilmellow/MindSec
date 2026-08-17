@@ -16,6 +16,7 @@ import { TechnicalTicker } from '@/components/TechnicalTicker';
 import { MethodologyTimeline } from '@/components/MethodologyTimeline';
 import { SecurityResearch } from '@/components/SecurityResearch';
 import { AboutSection } from '@/components/AboutSection';
+import { PricingSection } from '@/components/PricingSection';
 import { ContactSection } from '@/components/ContactSection';
 import { Footer } from '@/components/Footer';
 
@@ -31,7 +32,7 @@ export default function Home() {
       threshold: 0,
     };
 
-    const sectionIds = ['surface', 'test', 'verify', 'report', 'fix', 'research', 'about', 'contact'];
+    const sectionIds = ['surface', 'test', 'verify', 'report', 'fix', 'research', 'about', 'pricing', 'contact'];
 
     const observerCallback = (entries: IntersectionObserverEntry[]) => {
       entries.forEach((entry) => {
@@ -75,6 +76,7 @@ export default function Home() {
       <SecurityResearch />
 
       <AboutSection />
+      <PricingSection />
       <ContactSection />
 
       <Footer />
