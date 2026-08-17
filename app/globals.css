@@ -5,21 +5,23 @@
 @tailwind utilities;
 
 :root {
-  --bg-canvas: #050608;
-  --bg-surface: #0D0E12;
-  --bg-surface-2: #14151A;
-  --bg-card: #121318;
-  --border-color: #22242C;
-  --border-color-2: #353742;
-  --text-primary: #FAF8F5;
-  --text-secondary: #9E9A93;
-  --text-muted: #68645D;
-  --cyan-accent: #FF5722; /* Mapped to Burnt Orange */
-  --orange-accent: #FF5722; /* Burnt Orange */
-  --amber-accent: #E5A93C; /* Muted Amber */
-  --glow-color: rgba(255, 87, 34, 0.25);
-  --amber-glow: rgba(229, 169, 60, 0.2);
-  --hair-line: rgba(250, 248, 245, 0.08);
+  --bg-canvas: #08090C;
+  --bg-surface: #101319;
+  --bg-surface-2: #151921;
+  --bg-card: #12161B;
+  --border-color: #252A31;
+  --border-color-2: #3A414D;
+  --text-primary: #F2F2EE;
+  --text-secondary: #9299A3;
+  --text-muted: #636A75;
+  --cyan-accent: #F97316; /* Mapped to Burnt Orange */
+  --orange-accent: #F97316; /* Burnt Orange */
+  --orange-hover: #FB923C;
+  --orange-dark: #C2410C;
+  --amber-accent: #D6A15D; /* Secondary Warm Muted Amber */
+  --glow-color: rgba(249, 115, 22, 0.25);
+  --amber-glow: rgba(214, 161, 93, 0.2);
+  --hair-line: rgba(242, 242, 238, 0.08);
 }
 
 html {
@@ -32,28 +34,28 @@ html {
 
 body {
   overflow-x: hidden;
-  background-color: #050608;
-  color: #FAF8F5;
+  background-color: #08090C;
+  color: #F2F2EE;
   -webkit-font-smoothing: antialiased;
 }
 
-/* Custom Scrollbar */
+/* Custom KRAXXSEC Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #050608;
+  background: #08090C;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #22242C;
+  background: #252A31;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #FF5722;
+  background: #F97316;
 }
 
 /* Eyebrow Header with Burnt Orange Accent Line */
@@ -79,7 +81,7 @@ body {
   flex: none;
 }
 
-/* Nodewave Style Buttons */
+/* Buttons */
 .btn-nw {
   display: inline-flex;
   align-items: center;
@@ -103,20 +105,20 @@ body {
 
 .btn-nw-solid {
   background: var(--orange-accent);
-  color: #050608;
-  box-shadow: 0 0 16px rgba(255, 87, 34, 0.3);
+  color: #08090C;
+  box-shadow: 0 0 16px rgba(249, 115, 22, 0.3);
 }
 
 .btn-nw-solid:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(255, 87, 34, 0.5);
-  background: #ff6e3b;
+  box-shadow: 0 8px 25px rgba(249, 115, 22, 0.5);
+  background: var(--orange-hover);
 }
 
 .btn-nw-ghost {
   border-color: var(--border-color-2);
   color: var(--text-primary);
-  background: rgba(13, 14, 18, 0.7);
+  background: rgba(16, 19, 25, 0.7);
   backdrop-filter: blur(12px);
 }
 
@@ -124,7 +126,7 @@ body {
   border-color: var(--orange-accent);
   color: var(--orange-accent);
   transform: translateY(-2px);
-  box-shadow: 0 0 15px rgba(255, 87, 34, 0.2);
+  box-shadow: 0 0 15px rgba(249, 115, 22, 0.2);
 }
 
 /* Glass Badges */
@@ -140,7 +142,7 @@ body {
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--text-secondary);
-  background: rgba(18, 19, 24, 0.8);
+  background: rgba(18, 22, 27, 0.8);
   backdrop-filter: blur(10px);
   width: fit-content;
   white-space: nowrap;
@@ -150,10 +152,10 @@ body {
 .nw-badge:hover {
   border-color: var(--orange-accent);
   color: var(--text-primary);
-  box-shadow: 0 0 12px rgba(255, 87, 34, 0.2);
+  box-shadow: 0 0 12px rgba(249, 115, 22, 0.2);
 }
 
-/* 3D Vertical Blade Rack System - Right-side Up! */
+/* 3D Vertical Blade Rack System */
 .blades-container {
   display: flex;
   gap: 12px;
@@ -192,7 +194,7 @@ body {
   transform: translateY(-20px);
   border-color: var(--orange-accent);
   background: var(--bg-surface-2);
-  box-shadow: 0 20px 45px -15px rgba(255, 87, 34, 0.3);
+  box-shadow: 0 20px 45px -15px rgba(249, 115, 22, 0.3);
 }
 
 .blade-led {
@@ -261,26 +263,26 @@ body {
   background: var(--orange-accent);
   border-color: var(--orange-accent);
   transform: scale(1.3);
-  box-shadow: 0 0 0 6px rgba(255, 87, 34, 0.25);
+  box-shadow: 0 0 0 6px rgba(249, 115, 22, 0.25);
 }
 
 /* Cyber Technical Grid */
 .bg-tech-grid {
   background-size: 40px 40px;
   background-image: 
-    linear-gradient(to right, rgba(34, 36, 44, 0.4) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(34, 36, 44, 0.4) 1px, transparent 1px);
+    linear-gradient(to right, rgba(37, 42, 49, 0.4) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(37, 42, 49, 0.4) 1px, transparent 1px);
 }
 
 .bg-radial-gradient {
-  background: radial-gradient(circle at 50% 0%, rgba(255, 87, 34, 0.12) 0%, rgba(5, 6, 8, 0) 70%);
+  background: radial-gradient(circle at 50% 0%, rgba(249, 115, 22, 0.12) 0%, rgba(8, 9, 12, 0) 70%);
 }
 
 /* Cinematic Hero Stage */
 .hero-cinematic {
   background:
-    linear-gradient(110deg, rgba(5, 6, 8, 0.98) 0%, rgba(13, 14, 18, 0.92) 50%, rgba(26, 20, 18, 0.8) 100%),
-    #050608;
+    linear-gradient(110deg, rgba(8, 9, 12, 0.98) 0%, rgba(16, 19, 25, 0.92) 50%, rgba(28, 20, 16, 0.8) 100%),
+    #08090C;
   isolation: isolate;
 }
 
@@ -290,8 +292,8 @@ body {
   inset: 0;
   opacity: 0.5;
   background-image:
-    linear-gradient(rgba(255, 87, 34, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 87, 34, 0.08) 1px, transparent 1px);
+    linear-gradient(rgba(249, 115, 22, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(249, 115, 22, 0.08) 1px, transparent 1px);
   background-size: 56px 56px;
   mask-image: linear-gradient(90deg, black 0%, rgba(0,0,0,0.8) 50%, transparent 95%);
   pointer-events: none;
@@ -306,7 +308,7 @@ body {
   top: -28vw;
   right: -18vw;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 87, 34, 0.18) 0%, rgba(229, 169, 60, 0.1) 38%, transparent 70%);
+  background: radial-gradient(circle, rgba(249, 115, 22, 0.18) 0%, rgba(214, 161, 93, 0.1) 38%, transparent 70%);
   filter: blur(16px);
   animation: cinematic-float 14s ease-in-out infinite alternate;
   pointer-events: none;
@@ -317,7 +319,7 @@ body {
   height: 1px;
   width: 105vw;
   right: -30vw;
-  background: linear-gradient(90deg, transparent, rgba(255, 87, 34, 0.5), transparent);
+  background: linear-gradient(90deg, transparent, rgba(249, 115, 22, 0.5), transparent);
   transform-origin: right center;
   pointer-events: none;
 }
@@ -328,8 +330,8 @@ body {
 .hero-cinematic__panel {
   position: absolute;
   right: -13vw;
-  border: 1px solid rgba(255, 87, 34, 0.18);
-  background: linear-gradient(130deg, rgba(255, 87, 34, 0.08), rgba(13, 14, 18, 0.1) 45%, rgba(5, 6, 8, 0.6));
+  border: 1px solid rgba(249, 115, 22, 0.18);
+  background: linear-gradient(130deg, rgba(249, 115, 22, 0.08), rgba(16, 19, 25, 0.1) 45%, rgba(8, 9, 12, 0.6));
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 35px 80px rgba(0,0,0,0.6);
   transform: perspective(800px) rotateY(-23deg) rotateZ(-12deg);
   pointer-events: none;
@@ -343,16 +345,16 @@ body {
 
 /* Glow & Hover Effects */
 .orange-glow-border {
-  border-color: #FF5722;
-  box-shadow: 0 0 20px rgba(255, 87, 34, 0.3);
+  border-color: #F97316;
+  box-shadow: 0 0 20px rgba(249, 115, 22, 0.3);
 }
 
 .orange-glow-text {
-  text-shadow: 0 0 14px rgba(255, 87, 34, 0.5);
+  text-shadow: 0 0 14px rgba(249, 115, 22, 0.5);
 }
 
 .amber-glow-text {
-  text-shadow: 0 0 12px rgba(229, 169, 60, 0.5);
+  text-shadow: 0 0 12px rgba(214, 161, 93, 0.5);
 }
 
 .hover-trace {
@@ -376,8 +378,8 @@ body {
 
 /* Selection */
 ::selection {
-  background: rgba(255, 87, 34, 0.35);
-  color: #FAF8F5;
+  background: rgba(249, 115, 22, 0.35);
+  color: #F2F2EE;
 }
 
 /* Scanline Overlay */

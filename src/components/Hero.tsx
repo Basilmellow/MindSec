@@ -26,22 +26,22 @@ export const Hero: React.FC = () => {
             className="eyebrow"
           >
             <Terminal className="h-4 w-4 text-orange-accent" />
-            <span>{BRAND_CONFIG.name} · {BRAND_CONFIG.subtitle}</span>
+            <span>{BRAND_CONFIG.name} · {BRAND_CONFIG.subtitle} · A KRAXX DIVISION</span>
           </motion.div>
 
-          {/* Main Headline */}
+          {/* Main Headline (SEO H1) */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="space-y-2 font-heading"
+            className="space-y-3 font-heading"
           >
-            <h1 className="text-5xl sm:text-7xl lg:text-8xl font-bold tracking-tight text-text-primary uppercase leading-[0.98]">
-              Find the <span className="text-orange-accent orange-glow-text">weakness.</span>
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-text-primary uppercase leading-[1.02]">
+              Cybersecurity Testing for Modern Digital Systems
             </h1>
-            <h1 className="text-5xl sm:text-7xl lg:text-8xl font-bold tracking-tight text-text-primary uppercase leading-[0.98]">
-              Fix the <span className="text-primary border-b-4 border-orange-accent">risk.</span>
-            </h1>
+            <p className="text-2xl sm:text-4xl font-bold tracking-tight text-orange-accent orange-glow-text uppercase">
+              "{BRAND_CONFIG.tagline}"
+            </p>
           </motion.div>
 
           {/* Subtitle Description */}
@@ -49,9 +49,9 @@ export const Hero: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg sm:text-2xl text-text-secondary max-w-2xl font-light leading-relaxed"
+            className="text-base sm:text-xl text-text-secondary max-w-2xl font-light leading-relaxed"
           >
-            {BRAND_CONFIG.heroSub} Hands-on manual vulnerability testing with actionable remediation engineering for modern platforms.
+            {BRAND_CONFIG.heroSub} Hands-on security assessment, web application penetration testing, API vulnerability discovery, and actionable remediation engineering.
           </motion.p>
 
           {/* Fast Credibility Badges */}
@@ -67,11 +67,11 @@ export const Hero: React.FC = () => {
             </div>
             <div className="nw-badge">
               <FileCheck2 className="h-4 w-4 text-orange-accent" />
-              <span>CLEAR, ACTIONABLE REPORTS</span>
+              <span>MANUALLY VERIFIED FINDINGS</span>
             </div>
             <div className="nw-badge">
               <Clock3 className="h-4 w-4 text-orange-accent" />
-              <span>REPLY WITHIN 1 BUSINESS DAY</span>
+              <span>INITIAL RESPONSE WITHIN 1 BUSINESS DAY</span>
             </div>
           </motion.div>
 
@@ -83,54 +83,54 @@ export const Hero: React.FC = () => {
             className="flex flex-col sm:flex-row items-stretch sm:items-center space-y-3 sm:space-y-0 sm:space-x-4 pt-2 font-mono text-sm"
           >
             <a
-              href="#contact"
+              href="/security-assessment"
               className="btn-nw btn-nw-solid justify-center"
             >
-              <span>[ REQUEST ASSESSMENT ]</span>
+              <span>[ REQUEST SECURITY ASSESSMENT ]</span>
               <Zap className="h-4 w-4" />
             </a>
             <a
-              href="#surface"
+              href="/services"
               className="btn-nw btn-nw-ghost justify-center"
             >
-              <span>[ EXPLORE THE METHOD ]</span>
+              <span>[ VIEW TESTING SERVICES ]</span>
               <ArrowRight className="h-4 w-4" />
             </a>
           </motion.div>
         </div>
       </div>
 
-      {/* Live Technical Stats Strip */}
+      {/* Credible Technical Stats Strip */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.4 }}
-        className="relative z-10 w-full border-t border-border-color bg-bg-surface/80 backdrop-blur-xl mt-12"
+        className="relative z-10 w-full border-t border-border-color bg-bg-surface/90 backdrop-blur-xl mt-12"
       >
         <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 divide-x divide-border-color text-left font-mono">
           <div className="p-4 sm:p-5 space-y-1">
-            <div className="text-2xl font-bold text-text-primary tracking-tight">
-              100<small className="text-xs text-orange-accent ml-1">%</small>
+            <div className="text-xl font-bold text-text-primary tracking-tight">
+              Manual-First<small className="text-xs text-orange-accent ml-1">Testing</small>
             </div>
-            <div className="text-[11px] text-text-secondary">Manual Testing Validation</div>
+            <div className="text-[11px] text-text-secondary">Logic & Access Validation</div>
           </div>
           <div className="p-4 sm:p-5 space-y-1">
-            <div className="text-2xl font-bold text-text-primary tracking-tight">
-              &lt; 24<small className="text-xs text-orange-accent ml-1">h</small>
+            <div className="text-xl font-bold text-text-primary tracking-tight">
+              Scope-Driven<small className="text-xs text-orange-accent ml-1">Assessments</small>
             </div>
-            <div className="text-[11px] text-text-secondary">Initial Response Turnaround</div>
+            <div className="text-[11px] text-text-secondary">Rules of Engagement Agreed</div>
           </div>
           <div className="p-4 sm:p-5 space-y-1">
-            <div className="text-2xl font-bold text-text-primary tracking-tight">
-              0<small className="text-xs text-orange-accent ml-1">Noise</small>
+            <div className="text-xl font-bold text-text-primary tracking-tight">
+              Actionable<small className="text-xs text-orange-accent ml-1">Reporting</small>
             </div>
-            <div className="text-[11px] text-text-secondary">False Positive Elimination</div>
+            <div className="text-[11px] text-text-secondary">Code-Level Patch Guidance</div>
           </div>
           <div className="p-4 sm:p-5 space-y-1">
-            <div className="text-2xl font-bold text-text-primary tracking-tight">
-              1x<small className="text-xs text-orange-accent ml-1">Free</small>
+            <div className="text-xl font-bold text-text-primary tracking-tight">
+              Retesting<small className="text-xs text-orange-accent ml-1">Available</small>
             </div>
-            <div className="text-[11px] text-text-secondary">Retest Verification Included</div>
+            <div className="text-[11px] text-text-secondary">Verification of Fixed Risks</div>
           </div>
         </div>
       </motion.div>

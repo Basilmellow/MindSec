@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { BRAND_CONFIG } from '@/config/brand';
 
 interface LoaderProps {
@@ -29,7 +29,7 @@ export const Loader: React.FC<LoaderProps> = ({ onComplete }) => {
         }
         return prev + 1;
       });
-    }, 220);
+    }, 200);
 
     return () => clearInterval(interval);
   }, [onComplete]);
@@ -42,28 +42,28 @@ export const Loader: React.FC<LoaderProps> = ({ onComplete }) => {
       className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-bg-canvas text-primary font-mono px-4"
     >
       <div className="w-full max-w-md space-y-6">
-        <div className="flex items-center justify-between border-b border-bg-border pb-3">
+        <div className="flex items-center justify-between border-b border-border-color pb-3">
           <div className="flex items-center space-x-2">
-            <span className="h-2 w-2 rounded-full bg-cyan-accent animate-ping" />
-            <span className="text-xs tracking-widest text-secondary uppercase">
-              {BRAND_CONFIG.name} OS v2.4
+            <span className="h-2 w-2 rounded-full bg-orange-accent animate-ping" />
+            <span className="text-xs tracking-widest text-text-secondary uppercase">
+              {BRAND_CONFIG.name} // SECURITY ENGINEERING
             </span>
           </div>
           <button
             onClick={onComplete}
-            className="text-xs text-secondary hover:text-cyan-accent underline transition-colors"
+            className="text-xs text-text-secondary hover:text-orange-accent underline transition-colors"
           >
             [ SKIP ]
           </button>
         </div>
 
         <div className="space-y-2">
-          <p className="text-xs text-secondary tracking-wide">
-            INITIALIZING SECURITY LAYER...
+          <p className="text-xs text-text-secondary tracking-wide">
+            INITIALIZING ASSESSMENT FRAMEWORK...
           </p>
-          <div className="h-1.5 w-full bg-bg-surface overflow-hidden rounded-full border border-bg-border">
+          <div className="h-1.5 w-full bg-bg-surface overflow-hidden rounded-full border border-border-color">
             <motion.div
-              className="h-full bg-cyan-accent"
+              className="h-full bg-orange-accent"
               initial={{ width: '0%' }}
               animate={{ width: `${((stepIndex + 1) / steps.length) * 100}%` }}
               transition={{ duration: 0.2 }}
@@ -71,12 +71,12 @@ export const Loader: React.FC<LoaderProps> = ({ onComplete }) => {
           </div>
         </div>
 
-        <div className="flex items-center justify-between text-xs text-secondary">
+        <div className="flex items-center justify-between text-xs text-text-secondary">
           <div className="flex items-center space-x-2">
-            <span className="text-cyan-accent font-bold">0{stepIndex + 1}</span>
-            <span className="text-primary tracking-widest">{steps[stepIndex]}</span>
+            <span className="text-orange-accent font-bold">0{stepIndex + 1}</span>
+            <span className="text-text-primary tracking-widest">{steps[stepIndex]}</span>
           </div>
-          <span className="text-secondary/60">
+          <span className="text-text-muted">
             {Math.round(((stepIndex + 1) / steps.length) * 100)}%
           </span>
         </div>

@@ -8,34 +8,35 @@ module.exports = {
     extend: {
       colors: {
         bg: {
-          canvas: "#050608",
-          surface: "#0D0E12",
-          surface2: "#14151A",
-          card: "#121318",
-          border: "#22242C",
-          border2: "#353742",
+          canvas: "#08090C",
+          surface: "#101319",
+          surface2: "#151921",
+          card: "#12161B",
+          border: "#252A31",
+          border2: "#3A414D",
         },
-        primary: "#FAF8F5",
-        secondary: "#9E9A93",
-        muted: "#68645D",
+        primary: "#F2F2EE",
+        secondary: "#9299A3",
+        muted: "#636A75",
         cyan: {
-          accent: "#FF5722", // Burnt Orange primary accent mapping
-          glow: "rgba(255, 87, 34, 0.25)",
+          accent: "#F97316", // Mapped to Burnt Orange for backward compatibility
+          glow: "rgba(249, 115, 22, 0.25)",
         },
         orange: {
-          accent: "#FF5722", // Burnt Orange
-          deep: "#E64A19",
-          glow: "rgba(255, 87, 34, 0.25)",
+          accent: "#F97316", // Primary Accent: Burnt Orange
+          hover: "#FB923C",
+          dark: "#C2410C",
+          glow: "rgba(249, 115, 22, 0.25)",
         },
         amber: {
-          accent: "#E5A93C", // Muted Amber
-          glow: "rgba(229, 169, 60, 0.2)",
+          accent: "#D6A15D", // Secondary Warm Accent
+          glow: "rgba(214, 161, 93, 0.2)",
         },
         alert: {
-          critical: "#F44336",
-          high: "#FF5722",
-          medium: "#E5A93C",
-          low: "#4CAF50",
+          critical: "#EF4444",
+          high: "#F97316",
+          medium: "#D6A15D",
+          low: "#10B981",
         }
       },
       fontFamily: {

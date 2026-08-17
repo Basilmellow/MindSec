@@ -4,17 +4,19 @@ import { BRAND_CONFIG } from '@/config/brand';
 
 export const metadata: Metadata = {
   metadataBase: new URL(BRAND_CONFIG.siteUrl),
-  title: `${BRAND_CONFIG.name} — ${BRAND_CONFIG.subtitle}`,
+  title: `${BRAND_CONFIG.name} | Cybersecurity Services, Penetration Testing & Security Assessments`,
   description: BRAND_CONFIG.shortDescription,
   keywords: [
+    'KRAXXSEC',
+    'KRAXX',
     'Cybersecurity consultancy',
-    'Web application security',
-    'API security assessment',
+    'Web application penetration testing',
+    'API security testing',
+    'API penetration testing',
     'Vulnerability assessment',
+    'Security audit',
     'Security engineering',
     'Mohamed Basil',
-    'Security auditing',
-    'Penetration testing',
   ],
   authors: [{ name: BRAND_CONFIG.founder.name, url: BRAND_CONFIG.founder.github }],
   creator: BRAND_CONFIG.founder.name,
@@ -27,7 +29,7 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: BRAND_CONFIG.siteUrl,
-    title: `${BRAND_CONFIG.name} — ${BRAND_CONFIG.subtitle}`,
+    title: `${BRAND_CONFIG.name} | Cybersecurity Services, Penetration Testing & Security Assessments`,
     description: BRAND_CONFIG.shortDescription,
     siteName: BRAND_CONFIG.name,
     images: [
@@ -41,10 +43,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: `${BRAND_CONFIG.name} — ${BRAND_CONFIG.subtitle}`,
+    title: `${BRAND_CONFIG.name} | Cybersecurity Services & Penetration Testing`,
     description: BRAND_CONFIG.shortDescription,
     images: ['/og-image.png'],
-    creator: '@mindsec_sec',
   },
   robots: {
     index: true,
@@ -64,7 +65,24 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const jsonLd = {
+  const organizationJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: BRAND_CONFIG.name,
+    parentOrganization: {
+      '@type': 'Organization',
+      name: BRAND_CONFIG.parentBrand,
+    },
+    url: BRAND_CONFIG.siteUrl,
+    logo: `${BRAND_CONFIG.siteUrl}/icon.svg`,
+    email: BRAND_CONFIG.contactEmail,
+    sameAs: [
+      BRAND_CONFIG.founder.github,
+      BRAND_CONFIG.founder.linkedin,
+    ],
+  };
+
+  const serviceJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'ProfessionalService',
     name: BRAND_CONFIG.name,
@@ -79,11 +97,11 @@ export default function RootLayout({
       sameAs: [BRAND_CONFIG.founder.github, BRAND_CONFIG.founder.linkedin],
     },
     knowsAbout: [
-      'Web Application Security',
-      'API Security',
+      'Web Application Penetration Testing',
+      'API Security Testing',
       'Vulnerability Assessment',
       'Security Engineering',
-      'Access Control Validation',
+      'BOLA IDOR Authorization Testing',
     ],
     priceRange: '$$$',
     address: {
@@ -97,10 +115,14 @@ export default function RootLayout({
       <head>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
         />
       </head>
-      <body className="bg-bg-canvas text-primary antialiased selection:bg-cyan-accent/30 selection:text-white">
+      <body className="bg-bg-canvas text-primary antialiased selection:bg-orange-accent/30 selection:text-white">
         {children}
       </body>
     </html>

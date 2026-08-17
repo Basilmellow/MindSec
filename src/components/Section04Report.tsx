@@ -1,8 +1,7 @@
 'use client';
 
 import React from 'react';
-import { motion } from 'framer-motion';
-import { FileText, Download, ShieldCheck, AlertTriangle } from 'lucide-react';
+import { FileText, ShieldCheck, AlertTriangle } from 'lucide-react';
 import { SampleReport } from '@/types';
 
 const SAMPLE_REPORT: SampleReport = {
@@ -16,7 +15,7 @@ const SAMPLE_REPORT: SampleReport = {
   findingTitle: 'Broken Access Control & Insecure Direct Object References',
   businessImpact: 'Unauthorized users may access and modify confidential financial records outside their authorized role permissions.',
   recommendation: 'Implement centralized, server-side authorization checks at every protected API resource controller boundary.',
-  retestStatus: 'PENDING',
+  retestStatus: 'AVAILABLE UPON REQUEST',
 };
 
 export const Section04Report: React.FC = () => {
@@ -26,15 +25,15 @@ export const Section04Report: React.FC = () => {
         {/* Section Header */}
         <div className="space-y-4">
           <div className="flex items-center space-x-3">
-            <span className="font-mono text-cyan-accent font-bold text-4xl sm:text-6xl">04</span>
-            <span className="h-[2px] w-12 bg-cyan-accent" />
+            <span className="font-mono text-orange-accent font-bold text-4xl sm:text-6xl">04</span>
+            <span className="h-[2px] w-12 bg-orange-accent" />
             <span className="eyebrow">EXECUTIVE & TECHNICAL REPORTING</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-heading font-bold text-text-primary tracking-tight">
+          <h2 className="text-3xl sm:text-5xl font-heading font-bold text-text-primary tracking-tight uppercase">
             MAKE THE RISK UNDERSTANDABLE.
           </h2>
-          <blockquote className="text-xl sm:text-2xl text-text-secondary max-w-2xl font-light italic border-l-2 border-cyan-accent pl-4">
-            &ldquo;Technical findings should become strategic business decisions.&rdquo;
+          <blockquote className="text-xl sm:text-2xl text-text-secondary max-w-2xl font-light italic border-l-2 border-orange-accent pl-4">
+            &ldquo;Technical findings should become strategic engineering & business decisions.&rdquo;
           </blockquote>
         </div>
 
@@ -43,23 +42,23 @@ export const Section04Report: React.FC = () => {
           {/* Header Bar */}
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between border-b border-border-color pb-4 gap-3">
             <div className="flex items-center space-x-3">
-              <FileText className="h-6 w-6 text-cyan-accent" />
+              <FileText className="h-6 w-6 text-orange-accent" />
               <div>
                 <h3 className="font-heading font-bold text-lg text-text-primary">
-                  MINDSEC SECURITY ASSESSMENT REPORT
+                  KRAXXSEC SECURITY ASSESSMENT REPORT
                 </h3>
-                <span className="font-mono text-xs text-text-muted">DOCUMENT ID: MS-2026-REPORT-PREVIEW</span>
+                <span className="font-mono text-xs text-text-muted">SAMPLE DELIVERABLE // FORMAT SPECIMEN</span>
               </div>
             </div>
-            <span className="nw-badge">
-              ILLUSTRATIVE REPORT PREVIEW
+            <span className="nw-badge !border-amber-accent/50 text-amber-accent">
+              FICTIONAL DEMONSTRATION — NOT A CLIENT FINDING
             </span>
           </div>
 
           {/* Risk Distribution Meters */}
           <div className="space-y-3">
             <span className="font-mono text-xs font-bold text-text-secondary uppercase tracking-wider">
-              ATTACK SURFACE RISK DISTRIBUTION:
+              SAMPLE RISK DISTRIBUTION SPECIMEN:
             </span>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 font-mono">
               <div className="bg-bg-surface-2 p-4 rounded border border-red-500/40 space-y-1">
@@ -97,7 +96,7 @@ export const Section04Report: React.FC = () => {
           {/* Key Detailed Finding Breakdown */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2 font-mono text-xs">
             <div className="bg-bg-card p-5 rounded border border-border-color space-y-3">
-              <div className="flex items-center space-x-2 text-amber-400 font-bold">
+              <div className="flex items-center space-x-2 text-amber-accent font-bold">
                 <AlertTriangle className="h-4 w-4" />
                 <span>BUSINESS RISK IMPACT</span>
               </div>
@@ -107,7 +106,7 @@ export const Section04Report: React.FC = () => {
             </div>
 
             <div className="bg-bg-card p-5 rounded border border-border-color space-y-3">
-              <div className="flex items-center space-x-2 text-cyan-accent font-bold">
+              <div className="flex items-center space-x-2 text-orange-accent font-bold">
                 <ShieldCheck className="h-4 w-4" />
                 <span>ENGINEERING RECOMMENDATION</span>
               </div>
@@ -119,7 +118,7 @@ export const Section04Report: React.FC = () => {
 
           {/* Retest Status Footer */}
           <div className="pt-4 border-t border-border-color flex flex-col sm:flex-row items-center justify-between text-xs font-mono text-text-secondary gap-2">
-            <span>RETEST STATUS: <strong className="text-cyan-accent">{SAMPLE_REPORT.retestStatus}</strong></span>
+            <span>RETEST STATUS: <strong className="text-orange-accent">{SAMPLE_REPORT.retestStatus}</strong></span>
             <span className="text-text-muted">FORMAT: ACTIONABLE PDF & CODE-LEVEL REMEDIATION EXAMPLES</span>
           </div>
         </div>

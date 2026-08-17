@@ -52,7 +52,7 @@ export interface SampleReport {
   findingTitle: string;
   businessImpact: string;
   recommendation: string;
-  retestStatus: 'PENDING' | 'VERIFIED';
+  retestStatus: string;
 }
 
 export interface MethodologyStep {

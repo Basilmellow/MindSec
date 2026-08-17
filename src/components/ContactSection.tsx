@@ -2,17 +2,18 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ShieldCheck, Send, AlertCircle, CheckCircle2, Lock, Clock, Globe } from 'lucide-react';
+import { Send, AlertCircle, CheckCircle2, Lock } from 'lucide-react';
 import { ContactFormData } from '@/types';
+import { BRAND_CONFIG } from '@/config/brand';
 
 const SERVICES_OPTIONS = [
-  'Web Application Security',
+  'Web Application Security Testing',
   'API Security Assessment',
   'Vulnerability Assessment',
-  'Security Audit',
-  'Security Hardening',
-  'Security Consulting',
-  'Not Sure',
+  'Security Audit & Assessment',
+  'Security Hardening & Remediation',
+  'Cybersecurity Consulting',
+  'Not Sure / Custom Scope',
 ];
 
 export const ContactSection: React.FC = () => {
@@ -21,7 +22,7 @@ export const ContactSection: React.FC = () => {
     email: '',
     company: '',
     target: '',
-    service: 'Web Application Security',
+    service: 'Web Application Security Testing',
     message: '',
     hp_field_x7q: '', // Opaque Honeypot
     authorized: false,
@@ -59,7 +60,7 @@ export const ContactSection: React.FC = () => {
           email: '',
           company: '',
           target: '',
-          service: 'Web Application Security',
+          service: 'Web Application Security Testing',
           message: '',
           hp_field_x7q: '',
           authorized: false,
@@ -69,7 +70,7 @@ export const ContactSection: React.FC = () => {
       }
     } catch (err: any) {
       console.error('Contact submission error:', err);
-      setServerError('Network error while reaching MindSec API endpoint.');
+      setServerError('Network error while reaching KRAXXSEC API endpoint.');
     } finally {
       setLoading(false);
     }
@@ -81,14 +82,14 @@ export const ContactSection: React.FC = () => {
         {/* Header */}
         <div className="space-y-4">
           <div className="flex items-center space-x-3">
-            <Lock className="h-6 w-6 text-cyan-accent" />
+            <Lock className="h-6 w-6 text-orange-accent" />
             <span className="eyebrow">ASSESSMENT INITIATION</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-heading font-bold text-text-primary tracking-tight">
-            SEE WHAT WE CAN BREAK.
+          <h2 className="text-3xl sm:text-5xl font-heading font-bold text-text-primary tracking-tight uppercase">
+            REQUEST A SECURITY ASSESSMENT.
           </h2>
           <p className="text-xl text-text-secondary max-w-2xl font-light">
-            Tell us what you want assessed. We&apos;ll help define the exact scope.
+            Tell us about your application or API scope. We will help define the exact Rules of Engagement.
           </p>
         </div>
 
@@ -99,9 +100,9 @@ export const ContactSection: React.FC = () => {
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
-                className="bg-bg-surface-2 border border-cyan-accent/50 p-8 rounded-lg text-center space-y-4"
+                className="bg-bg-surface-2 border border-orange-accent/50 p-8 rounded-lg text-center space-y-4"
               >
-                <div className="inline-flex p-3 rounded-full bg-cyan-accent/15 text-cyan-accent">
+                <div className="inline-flex p-3 rounded-full bg-orange-accent/15 text-orange-accent">
                   <CheckCircle2 className="h-8 w-8" />
                 </div>
                 <h3 className="text-2xl font-heading font-bold text-text-primary">
@@ -146,7 +147,7 @@ export const ContactSection: React.FC = () => {
                   {/* Name */}
                   <div className="space-y-2">
                     <label htmlFor="contact-name" className="block text-text-secondary uppercase font-bold">
-                      NAME <span className="text-cyan-accent">*</span>
+                      NAME <span className="text-orange-accent">*</span>
                     </label>
                     <input
                       type="text"
@@ -155,14 +156,14 @@ export const ContactSection: React.FC = () => {
                       placeholder="e.g. Alex Morgan"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full bg-bg-card border border-border-color rounded p-3 text-text-primary placeholder-text-muted focus:border-cyan-accent focus:outline-none transition-colors"
+                      className="w-full bg-bg-card border border-border-color rounded p-3 text-text-primary placeholder-text-muted focus:border-orange-accent focus:outline-none transition-colors"
                     />
                   </div>
 
                   {/* Email */}
                   <div className="space-y-2">
                     <label htmlFor="contact-email" className="block text-text-secondary uppercase font-bold">
-                      BUSINESS EMAIL <span className="text-cyan-accent">*</span>
+                      BUSINESS EMAIL <span className="text-orange-accent">*</span>
                     </label>
                     <input
                       type="email"
@@ -171,7 +172,7 @@ export const ContactSection: React.FC = () => {
                       placeholder="e.g. alex@company.com"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full bg-bg-card border border-border-color rounded p-3 text-text-primary placeholder-text-muted focus:border-cyan-accent focus:outline-none transition-colors"
+                      className="w-full bg-bg-card border border-border-color rounded p-3 text-text-primary placeholder-text-muted focus:border-orange-accent focus:outline-none transition-colors"
                     />
                   </div>
                 </div>
@@ -188,20 +189,20 @@ export const ContactSection: React.FC = () => {
                       placeholder="e.g. Acme Corp"
                       value={formData.company}
                       onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                      className="w-full bg-bg-card border border-border-color rounded p-3 text-text-primary placeholder-text-muted focus:border-cyan-accent focus:outline-none transition-colors"
+                      className="w-full bg-bg-card border border-border-color rounded p-3 text-text-primary placeholder-text-muted focus:border-orange-accent focus:outline-none transition-colors"
                     />
                   </div>
 
                   {/* Service Selection */}
                   <div className="space-y-2">
                     <label htmlFor="contact-service" className="block text-text-secondary uppercase font-bold">
-                      PRIMARY SERVICE <span className="text-cyan-accent">*</span>
+                      PRIMARY SERVICE <span className="text-orange-accent">*</span>
                     </label>
                     <select
                       id="contact-service"
                       value={formData.service}
                       onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                      className="w-full bg-bg-card border border-border-color rounded p-3 text-text-primary focus:border-cyan-accent focus:outline-none transition-colors"
+                      className="w-full bg-bg-card border border-border-color rounded p-3 text-text-primary focus:border-orange-accent focus:outline-none transition-colors"
                     >
                       {SERVICES_OPTIONS.map((opt) => (
                         <option key={opt} value={opt} className="bg-bg-card text-text-primary">
@@ -223,28 +224,28 @@ export const ContactSection: React.FC = () => {
                     placeholder="e.g. https://api.company.com, app.company.com"
                     value={formData.target}
                     onChange={(e) => setFormData({ ...formData, target: e.target.value })}
-                    className="w-full bg-bg-card border border-border-color rounded p-3 text-text-primary placeholder-text-muted focus:border-cyan-accent focus:outline-none transition-colors"
+                    className="w-full bg-bg-card border border-border-color rounded p-3 text-text-primary placeholder-text-muted focus:border-orange-accent focus:outline-none transition-colors"
                   />
                 </div>
 
                 {/* Message */}
                 <div className="space-y-2">
                   <label htmlFor="contact-message" className="block text-text-secondary uppercase font-bold">
-                    ASSESSMENT DETAILS & SCOPE NOTES <span className="text-cyan-accent">*</span>
+                    ASSESSMENT DETAILS & SCOPE NOTES <span className="text-orange-accent">*</span>
                   </label>
                   <textarea
                     required
                     id="contact-message"
                     rows={4}
                     maxLength={2000}
-                    placeholder="Describe your platform stack, timeline requirements, and specific areas of concern..."
+                    placeholder="Describe your application stack, timeline requirements, and specific areas of concern..."
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full bg-bg-card border border-border-color rounded p-3 text-text-primary placeholder-text-muted focus:border-cyan-accent focus:outline-none transition-colors resize-y"
+                    className="w-full bg-bg-card border border-border-color rounded p-3 text-text-primary placeholder-text-muted focus:border-orange-accent focus:outline-none transition-colors resize-y"
                   />
                 </div>
 
-                {/* Authorization Checkbox */}
+                {/* Mandatory Authorization Checkbox */}
                 <div className="bg-bg-card p-4 rounded border border-border-color space-y-2">
                   <label htmlFor="contact-authorized" className="flex items-start space-x-3 cursor-pointer">
                     <input
@@ -253,7 +254,7 @@ export const ContactSection: React.FC = () => {
                       required
                       checked={formData.authorized}
                       onChange={(e) => setFormData({ ...formData, authorized: e.target.checked })}
-                      className="mt-0.5 h-4 w-4 bg-bg-canvas border-border-color rounded accent-cyan-accent cursor-pointer"
+                      className="mt-0.5 h-4 w-4 bg-bg-canvas border-border-color rounded accent-orange-accent cursor-pointer"
                     />
                     <span className="text-text-secondary text-[11px] leading-relaxed">
                       I confirm that I am authorized to request security testing of the specified target systems.
@@ -283,39 +284,39 @@ export const ContactSection: React.FC = () => {
           {/* Side Status Panel */}
           <div className="lg:col-span-4 bg-bg-surface-2 border border-border-color rounded-xl p-6 space-y-6 shadow-[0_15px_35px_rgba(0,0,0,0.3)]">
             <div className="border-b border-border-color pb-3">
-              <span className="font-mono text-xs text-cyan-accent font-bold tracking-wider">
-                MINDSEC
+              <span className="font-mono text-xs text-orange-accent font-bold tracking-wider">
+                {BRAND_CONFIG.name}
               </span>
               <h4 className="font-heading font-bold text-lg text-text-primary">
-                ASSESSMENT WORKFLOW
+                ENGAGEMENT PROTOCOL
               </h4>
-              <span className="font-mono text-[10px] text-text-muted">Standard protocol</span>
+              <span className="font-mono text-[10px] text-text-muted">A KRAXX SECURITY DIVISION</span>
             </div>
 
             <div className="space-y-4 font-mono text-xs">
               <div className="bg-bg-surface p-3.5 rounded border border-border-color flex items-center justify-between">
                 <span className="text-text-muted">STATUS</span>
-                <span className="text-cyan-accent font-bold">OPEN</span>
+                <span className="text-orange-accent font-bold">READY</span>
               </div>
 
               <div className="bg-bg-surface p-3.5 rounded border border-border-color flex items-center justify-between">
-                <span className="text-text-muted">RESPONSE</span>
+                <span className="text-text-muted">INITIAL RESPONSE</span>
                 <span className="text-text-primary font-bold">WITHIN 1 BUSINESS DAY</span>
               </div>
 
               <div className="bg-bg-surface p-3.5 rounded border border-border-color flex items-center justify-between">
-                <span className="text-text-muted">TESTING</span>
+                <span className="text-text-muted">TESTING PERMISSION</span>
                 <span className="text-text-primary font-bold">AUTHORIZED ONLY</span>
               </div>
 
               <div className="bg-bg-surface p-3.5 rounded border border-border-color flex items-center justify-between">
-                <span className="text-text-muted">LOCATION</span>
-                <span className="text-text-primary font-bold">REMOTE</span>
+                <span className="text-text-muted">PRIMARY EMAIL</span>
+                <span className="text-orange-accent font-bold text-[11px]">{BRAND_CONFIG.contactEmail}</span>
               </div>
             </div>
 
             <div className="pt-4 border-t border-border-color text-text-secondary text-[11px] font-mono leading-relaxed">
-              Requests are reviewed by Mohamed Basil. Rules of Engagement agreements are signed prior to any security testing execution.
+              Requests are reviewed directly by Mohamed Basil. Formal Rules of Engagement and scope authorization documents are completed prior to executing any security testing.
             </div>
           </div>
         </div>
